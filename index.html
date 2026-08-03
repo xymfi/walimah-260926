@@ -229,13 +229,20 @@
     margin:0 0 6px 0;
   }
   .venue-addr{font-size:12.5px;color:var(--ink-soft);line-height:1.6;margin:0 0 14px 0;}
+  .map-link-wrapper{
+    display:block;
+    position:relative;
+    width:100%;
+    border-radius:4px;
+    overflow:hidden;
+  }
   .map-frame{
     width:100%;
     border:0;
-    border-radius:4px;
     height:190px;
     display:block;
     filter:grayscale(0.15) sepia(0.08);
+    pointer-events:none; /* Membenarkan klik tembus ke pautan <a> */
   }
   .btn{
     display:inline-block;
@@ -397,8 +404,13 @@
     <div class="venue-card">
       <div class="venue-name">Kediaman Keluarga, Taman Seri Rembau</div>
       <p class="venue-addr">Lot 3095, Jalan Dato&rsquo; Raja Diraja,<br>Taman Seri Rembau, Fasa 1,<br>71300 Rembau, Negeri Sembilan</p>
-      <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Lot%203095%2C%20Jalan%20Dato%27%20Raja%20Diraja%2C%20Taman%20Seri%20Rembau%2C%20Fasa%201%2C%20Rembau%2C%20Negeri%20Sembilan&output=embed"></iframe>
+      
+      <!-- Peta yang boleh ditekan terus -->
+      <a class="map-link-wrapper" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener" title="Buka dalam Google Maps">
+        <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Lot%203095%2C%20Jalan%20Dato%27%20Raja%20Diraja%2C%20Taman%20Seri%20Rembau%2C%20Fasa%201%2C%20Rembau%2C%20Negeri%20Sembilan&output=embed"></iframe>
+      </a>
+
       <a class="btn gold" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener">Buka dalam Google Maps</a>
     </div>
   </div>
