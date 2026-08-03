@@ -6,7 +6,7 @@
 <title>Walimatul Urus — Fahim &amp; Hanaa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Mrs+Saint+Delafield&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Mrs+Saint+Delafield&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --soft-white:#F8F7F3;
@@ -98,8 +98,9 @@
     margin-bottom:8px;
   }
   .name-script{
-    font-family:'Mrs Saint Delafield',cursive;
-    font-size:clamp(42px,11vw,54px);
+    font-family:'Birthstone',cursive;
+    font-size:clamp(52px,13vw,68px);
+    font-weight:400;
     color:var(--olive-deep);
     line-height:1.15;
     margin:4px 0 10px 0;
@@ -370,12 +371,20 @@
   <!-- COUPLE -->
   <div class="block couple-block">
     <div class="name-script">Muhammad Fahim Irsyad</div>
-    <div class="name-sub">Putera kepada<br>Mohamad Fadzil bin Md Tahir &amp; Siti Shazilla binti Salleh</div>
+    <div class="name-sub">
+      Putera kepada<br>
+      Mohamad Fadzil bin Md Tahir<br>
+      &amp; Siti Shazilla binti Salleh
+    </div>
 
     <div class="amp-symbol">&amp;</div>
 
     <div class="name-script">Hanaa Najihah</div>
-    <div class="name-sub">Puteri kepada<br>Zulkifli bin Hussin &amp; Anita binti Ibrahim</div>
+    <div class="name-sub">
+      Puteri kepada<br>
+      Zulkifli bin Hussin<br>
+      &amp; Anita binti Ibrahim
+    </div>
   </div>
 
   <!-- EVENT / DATE -->
@@ -510,6 +519,7 @@
   });
 
   // 3. HANTAR BORANG KE GOOGLE SHEETS
+  // Pastikan anda menggantikan URL di bawah dengan Web App URL dari Google Apps Script anda!
   const SCRIPT_URL = "URL_WEB_APP_ANDA_DI_SINI";
 
   document.getElementById("f-submit").addEventListener("click", function(e) {
