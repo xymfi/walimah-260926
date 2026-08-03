@@ -108,14 +108,14 @@
     font-family:'Mrs Saint Delafield',cursive;
     font-size:44px;
     color:var(--gold);
-    margin:32px auto 16px auto; /* Spacing ekstra di atas & bawah */
+    margin:32px auto 16px auto;
     line-height:1;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
     width:100%;
-    padding-left:6px; /* Optical center adjustment */
+    padding-left:6px;
   }
 
   /* ---------- Event / Date Table ---------- */
@@ -229,21 +229,28 @@
     margin:0 0 6px 0;
   }
   .venue-addr{font-size:12.5px;color:var(--ink-soft);line-height:1.6;margin:0 0 14px 0;}
+  
+  /* Styling gambar peta hyperlink */
   .map-link-wrapper{
     display:block;
     position:relative;
     width:100%;
-    border-radius:4px;
+    border-radius:6px;
     overflow:hidden;
+    border:1px solid var(--beige);
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .map-frame{
+  .map-link-wrapper:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .map-img{
     width:100%;
-    border:0;
     height:190px;
+    object-fit:cover;
     display:block;
-    filter:grayscale(0.15) sepia(0.08);
-    pointer-events:none; /* Membenarkan klik tembus ke pautan <a> */
   }
+
   .btn{
     display:inline-block;
     margin-top:14px;
@@ -405,10 +412,9 @@
       <div class="venue-name">Kediaman Keluarga, Taman Seri Rembau</div>
       <p class="venue-addr">Lot 3095, Jalan Dato&rsquo; Raja Diraja,<br>Taman Seri Rembau, Fasa 1,<br>71300 Rembau, Negeri Sembilan</p>
       
-      <!-- Peta yang boleh ditekan terus -->
-      <a class="map-link-wrapper" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener" title="Buka dalam Google Maps">
-        <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Lot%203095%2C%20Jalan%20Dato%27%20Raja%20Diraja%2C%20Taman%20Seri%20Rembau%2C%20Fasa%201%2C%20Rembau%2C%20Negeri%20Sembilan&output=embed"></iframe>
+      <!-- GAMBAR PETA SEBAGAI HYPERLINK -->
+      <a class="map-link-wrapper" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener" title="Buka Lokasi dalam Google Maps">
+        <img class="map-img" src="map.png" alt="Lokasi Google Maps">
       </a>
 
       <a class="btn gold" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener">Buka dalam Google Maps</a>
@@ -531,7 +537,6 @@
       message: msg
     };
 
-    // Gunakan text/plain untuk elak masalah CORS Preflight Google Apps Script
     fetch(SCRIPT_URL, {
       method: "POST",
       headers: {
