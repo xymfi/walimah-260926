@@ -108,14 +108,14 @@
     font-family:'Mrs Saint Delafield',cursive;
     font-size:44px;
     color:var(--gold);
-    margin:32px auto 16px auto; /* Jarak ekstra dimasukkan di atas & bawah */
+    margin:32px auto 16px auto; /* Spacing ekstra di atas & bawah */
     line-height:1;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
     width:100%;
-    padding-left:6px;
+    padding-left:6px; /* Optical center adjustment */
   }
 
   /* ---------- Event / Date Table ---------- */
@@ -470,7 +470,7 @@
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // 2. RSVP SEGMENTED BUTTON TOGGLE
+  // 2. RSVP BUTTON TOGGLE
   const statusButtons = document.querySelectorAll("#f-status button");
   const paxContainer = document.getElementById("pax-container");
   let selectedStatus = "Hadir";
@@ -489,8 +489,8 @@
     });
   });
 
-  // 3. HANTAR BORANG KE GOOGLE SHEETS
-  const SCRIPT_URL = "URL_WEB_APP_ANDA_DI_SINI";
+  // 3. HANTAR RSVP KE GOOGLE SHEETS
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5-KexSigLh5eecK52qLlKl87arNlZGf5E9p2khVVS146UbPUzS_Plg3ivt4WrUVxf/exec";
 
   document.getElementById("f-submit").addEventListener("click", function(e) {
     e.preventDefault();
@@ -519,30 +519,33 @@
       message: msg
     };
 
+    // Gunakan text/plain untuk elak masalah CORS Preflight Google Apps Script
     fetch(SCRIPT_URL, {
       method: "POST",
-      mode: "no-cors",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "text/plain;charset=utf-8"
       },
       body: JSON.stringify(payload)
     })
-    .then(() => {
-      resultDiv.className = "rsvp-msg ok";
-      resultDiv.textContent = "Terima kasih! Sahkan kehadiran anda telah direkodkan.";
-      
-      document.getElementById("f-name").value = "";
-      document.getElementById("f-msg").value = "";
-      document.getElementById("f-pax").value = "1";
-      
-      btnSubmit.disabled = false;
-      btnSubmit.textContent = "Hantar RSVP";
+    .then(response => response.json())
+    .then(data => {
+      if(data.result === "success") {
+        resultDiv.className = "rsvp-msg ok";
+        resultDiv.textContent = "Terima kasih! Sahkan kehadiran anda telah direkodkan.";
+        
+        document.getElementById("f-name").value = "";
+        document.getElementById("f-msg").value = "";
+        document.getElementById("f-pax").value = "1";
+      } else {
+        throw new Error(data.error || "Gagal menyimpan data.");
+      }
     })
     .catch(error => {
       console.error("Error:", error);
       resultDiv.className = "rsvp-msg err";
       resultDiv.textContent = "Maaf, berlaku ralat. Sila cuba lagi.";
-      
+    })
+    .finally(() => {
       btnSubmit.disabled = false;
       btnSubmit.textContent = "Hantar RSVP";
     });
