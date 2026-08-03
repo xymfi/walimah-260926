@@ -36,17 +36,8 @@
     position:relative;
     overflow:hidden;
     background:var(--soft-white);
+    padding-bottom: 40px;
   }
-  .corner-ornament{
-    position:absolute;
-    width:190px;
-    height:190px;
-    opacity:0.9;
-    pointer-events:none;
-    z-index:0;
-  }
-  .corner-ornament.tr{ top:0; right:0; }
-  .corner-ornament.bl{ bottom:0; left:0; transform:rotate(180deg); }
 
   section, .block{
     position:relative;
@@ -299,7 +290,7 @@
   .rsvp-msg.ok{color:var(--olive-deep);}
   .rsvp-msg.err{color:var(--maroon);}
 
-  /* ---------- Closing / footer ---------- */
+  /* ---------- Closing ---------- */
   .closing-block{padding-top:44px;}
   .closing-text{
     font-size:13.5px;
@@ -307,15 +298,6 @@
     color:var(--ink-soft);
     max-width:380px;
     margin:0 auto;
-  }
-  footer{
-    padding:20px 32px 46px 32px;
-    text-align:center;
-  }
-  footer .tag{
-    font-size:11px;
-    letter-spacing:0.1em;
-    color:var(--ink-soft);
   }
 
   .rule{
@@ -328,37 +310,12 @@
   @media (max-width:420px){
     .event-table{flex-direction:column; gap:22px;}
     .event-col + .event-col{border-left:none; border-top:1px solid var(--beige); padding-top:22px;}
-    .corner-ornament{width:130px;height:130px;}
   }
 </style>
 </head>
 <body>
 
 <div class="card">
-
-  <svg class="corner-ornament tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M300,40 C180,30 140,120 20,260" fill="none" stroke="var(--olive)" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-    <g transform="translate(260.0,40.6) rotate(227.7) scale(1.1)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(219.8,51.6) rotate(101.6) scale(1.3)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(184.2,72.8) rotate(197.8) scale(1.2)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(152.8,100.9) rotate(79.4) scale(1.4)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(120.9,136.5) rotate(185.0) scale(1.1)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(86.5,178.9) rotate(73.7) scale(1.0)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(53.8,219.6) rotate(184.2) scale(0.8)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <circle cx="236.3" cy="45.6" r="3.2" fill="var(--gold)"/><circle cx="167.2" cy="87.0" r="3.2" fill="var(--gold)"/><circle cx="102.9" cy="158.5" r="3.2" fill="var(--gold)"/>
-  </svg>
-
-  <svg class="corner-ornament bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M300,40 C180,30 140,120 20,260" fill="none" stroke="var(--olive)" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-    <g transform="translate(260.0,40.6) rotate(227.7) scale(1.1)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(219.8,51.6) rotate(101.6) scale(1.3)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(184.2,72.8) rotate(197.8) scale(1.2)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(152.8,100.9) rotate(79.4) scale(1.4)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(120.9,136.5) rotate(185.0) scale(1.1)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(86.5,178.9) rotate(73.7) scale(1.0)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <g transform="translate(53.8,219.6) rotate(184.2) scale(0.8)"><path d="M0,0 C5,-7 15,-7 21,0 C15,7 5,7 0,0 Z" fill="var(--sage)" stroke="var(--olive)" stroke-width="1.1" opacity="0.92"/><line x1="0" y1="0" x2="20" y2="0" stroke="var(--olive)" stroke-width="0.7" opacity="0.5"/></g>
-    <circle cx="236.3" cy="45.6" r="3.2" fill="var(--gold)"/><circle cx="167.2" cy="87.0" r="3.2" fill="var(--gold)"/><circle cx="102.9" cy="158.5" r="3.2" fill="var(--gold)"/>
-  </svg>
 
   <!-- BISMILLAH -->
   <div class="block bismillah-block">
@@ -466,10 +423,6 @@
     <p class="closing-text">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Dato&rsquo;/Datin/Tuan/Puan/Encik/Cik berkenan hadir untuk memberikan doa dan restu.</p>
   </div>
 
-  <footer>
-    <p class="tag">Walimatul &lsquo;Urs — Fahim &amp; Hanaa &bull; 2026</p>
-  </footer>
-
 </div>
 
 <script>
@@ -519,7 +472,6 @@
   });
 
   // 3. HANTAR BORANG KE GOOGLE SHEETS
-  // Pastikan anda menggantikan URL di bawah dengan Web App URL dari Google Apps Script anda!
   const SCRIPT_URL = "URL_WEB_APP_ANDA_DI_SINI";
 
   document.getElementById("f-submit").addEventListener("click", function(e) {
