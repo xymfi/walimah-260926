@@ -444,31 +444,35 @@
 <div class="card" id="mainCard">
 
   <!-- SECTION 1: HEADER -->
-  <div class="block bg-soft reveal">
-    
-    <!-- 1. BISMILLAH TEKS ARAB (INLINE STYLED) -->
-    <div style="font-family: 'Amiri', serif !important; font-weight: 700 !important; font-style: normal !important; font-size: 28px !important; color: #434E35 !important; margin-bottom: 16px !important; direction: rtl !important; line-height: 1.4 !important;">
+  <div class="block bg-soft reveal" style="text-align: center !important;">
+
+    <!-- 1. BISMILLAH ARAB (HARDCODED OVERRIDE) -->
+    <div style="font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif !important; font-style: normal !important; font-weight: 700 !important; font-size: 32px !important; color: #2C2923 !important; margin: 0 0 20px 0 !important; line-height: 1.4 !important; direction: rtl !important;">
       بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
     </div>
 
-    <!-- 2. TAJUK UTAMA (SATU BLOCK & SPACING RAPAT) -->
-    <span class="eyebrow-small">UNDANGAN KE</span>
-    
-    <h1 style="font-family: 'Cormorant Garamond', serif !important; font-style: normal !important; font-size: 34px !important; font-weight: 600 !important; color: #2C2923 !important; margin: 0 0 24px 0 !important; line-height: 1.0 !important;">
-      Majlis Kesyukuran
-      <span style="display: block !important; margin-top: 4px !important; font-family: 'Cormorant Garamond', serif !important; font-style: italic !important; font-size: 30px !important; font-weight: 400 !important; color: #C2A06E !important;">
-        &amp; Ijab Qabul
-      </span>
-    </h1>
-    
-    <!-- 3. LOGO GREEN -->
-    <img src="logo green.png" alt="Logo FH" class="header-logo">
+    <!-- 2. SUBTITLE UNDANGAN KE -->
+    <span class="eyebrow-small" style="display: block !important; margin-bottom: 6px !important;">UNDANGAN KE</span>
 
-    <!-- 4. SALAM -->
-    <p class="doa">
+    <!-- 3. TAJUK UTAMA (HARDCODED SPACING RAPAT) -->
+    <div style="margin: 0 0 24px 0 !important; padding: 0 !important;">
+      <h1 style="font-family: 'Cormorant Garamond', serif !important; font-style: normal !important; font-size: 36px !important; font-weight: 600 !important; color: #2C2923 !important; margin: 0 !important; padding: 0 !important; line-height: 1.0 !important;">
+        Majlis Kesyukuran
+      </h1>
+      <div style="font-family: 'Cormorant Garamond', serif !important; font-style: italic !important; font-size: 30px !important; font-weight: 400 !important; color: #C2A06E !important; margin-top: -2px !important; padding: 0 !important; line-height: 1.0 !important;">
+        &amp; Ijab Qabul
+      </div>
+    </div>
+
+    <!-- 4. LOGO GREEN -->
+    <img src="logo green.png" alt="Logo FH" class="header-logo" style="width: 150px !important; height: auto !important; margin: 0 auto 24px auto !important; display: block !important;">
+
+    <!-- 5. UCAPAN SALAM -->
+    <p class="doa" style="margin: 0 auto !important;">
       Assalamu’alaikum Warahmatullahi Wabarakatuh<br>
       &amp; Salam Sejahtera
     </p>
+
   </div>
 
   <!-- SECTION 2: HOST & COUPLE -->
@@ -610,7 +614,6 @@
   const bgMusic = document.getElementById("bg-music");
 
   openCardBtn.addEventListener("click", () => {
-    // Play Lagu
     if (bgMusic) {
       bgMusic.play().catch(err => console.log("Audio Error:", err));
     }
