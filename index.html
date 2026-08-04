@@ -6,7 +6,6 @@
 <title>Majlis Kesyukuran &amp; Ijab Qabul — Hanaa &amp; Fahim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Google Fonts: Cormorant Garamond & Montserrat -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 
 <style>
@@ -38,7 +37,6 @@
 
   body.no-scroll { overflow: hidden; }
 
-  /* OPENING COVER OVERLAY */
   #opening-cover {
     position: fixed;
     top: 0;
@@ -107,7 +105,6 @@
     transform: translateY(-2px);
   }
 
-  /* MAIN CARD WRAPPER */
   .card {
     max-width: 540px;
     margin: 0 auto;
@@ -427,12 +424,10 @@
 </head>
 <body class="no-scroll">
 
-<!-- AUDIO ELEMENT FOR LAGU.MP3 -->
 <audio id="bg-music" loop preload="auto">
   <source src="lagu.mp3" type="audio/mpeg">
 </audio>
 
-<!-- OPENING COVER OVERLAY -->
 <div id="opening-cover">
   <div class="envelope-wrapper">
     <img src="Sampul.png" alt="Sampul Jemputan" class="envelope-img">
@@ -440,21 +435,16 @@
   </div>
 </div>
 
-<!-- MAIN CARD CONTENT -->
 <div class="card" id="mainCard">
 
   <!-- SECTION 1: HEADER -->
   <div class="block bg-soft reveal" style="text-align: center !important;">
-
-    <!-- 1. BISMILLAH ARAB (FONT ARIAL) -->
     <div style="font-family: Arial, Helvetica, sans-serif !important; font-style: normal !important; font-weight: bold !important; font-size: 28px !important; color: #2C2923 !important; margin: 0 0 20px 0 !important; line-height: 1.4 !important; direction: rtl !important;">
       بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
     </div>
 
-    <!-- 2. SUBTITLE UNDANGAN KE -->
     <span class="eyebrow-small" style="display: block !important; margin-bottom: 6px !important;">UNDANGAN KE</span>
 
-    <!-- 3. TAJUK UTAMA (SAMA FONT: CORMORANT GARAMOND) -->
     <div style="margin: 0 0 24px 0 !important; padding: 0 !important;">
       <h1 style="font-family: 'Cormorant Garamond', serif !important; font-style: normal !important; font-size: 36px !important; font-weight: 600 !important; color: #2C2923 !important; margin: 0 !important; padding: 0 !important; line-height: 1.0 !important;">
         Majlis Kesyukuran
@@ -464,15 +454,12 @@
       </div>
     </div>
 
-    <!-- 4. LOGO GREEN -->
-    <img src="logo green.png" alt="Logo FH" class="header-logo" style="width: 150px !important; height auto !important; margin: 0 auto 24px auto !important; display: block !important;">
+    <img src="logo green.png" alt="Logo FH" class="header-logo" style="width: 150px !important; height: auto !important; margin: 0 auto 24px auto !important; display: block !important;">
 
-    <!-- 5. UCAPAN SALAM -->
     <p class="doa" style="margin: 0 auto !important;">
       Assalamu’alaikum Warahmatullahi Wabarakatuh<br>
       &amp; Salam Sejahtera
     </p>
-
   </div>
 
   <!-- SECTION 2: HOST & COUPLE -->
@@ -483,7 +470,6 @@
       sekeluarga hadir ke Majlis Kesyukuran &amp; Ijab Qabul puteri kami bersama pasangan:
     </p>
 
-    <!-- Pengantin Perempuan -->
     <div class="name-script">Hanaa Najihah</div>
     <div class="parent-sub">
       Puteri kepada Zulkifli bin Hussin<br>&amp; Anita binti Ibrahim
@@ -491,7 +477,6 @@
 
     <div class="amp-symbol">&amp;</div>
 
-    <!-- Pengantin Lelaki -->
     <div class="name-script">Muhammad Fahim Irsyad</div>
     <div class="parent-sub">
       Putera kepada Mohamad Fadzil bin Md Tahir<br>&amp; Siti Shazilla binti Salleh
@@ -501,7 +486,6 @@
   <!-- SECTION 3: EVENT / DATE -->
   <div class="block bg-soft reveal">
     <div class="event-lead">Tarikh Majlis</div>
-    
     <div class="event-details">
       <div class="event-date-row">
         <span class="event-day">Sabtu</span>
@@ -607,6 +591,8 @@
 </div>
 
 <script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlf7FqMY7a03wRJXih6Acuvr-GLKAE3c8vvuzpNiJiS7ZhjNLyMZgUWNLFkGxOisuq/exec";
+
   const openCardBtn = document.getElementById("openCardBtn");
   const openingCover = document.getElementById("opening-cover");
   const mainCard = document.getElementById("mainCard");
@@ -616,7 +602,6 @@
     if (bgMusic) {
       bgMusic.play().catch(err => console.log("Audio Error:", err));
     }
-
     openingCover.classList.add("open-card");
     document.body.classList.remove("no-scroll");
     mainCard.classList.add("show-main");
@@ -636,6 +621,69 @@
     reveals.forEach(el => observer.observe(el));
   }
 
+  // Segment Button Logic (Hadir / Tidak Hadir)
+  let selectedStatus = "Hadir";
+  const statusBtns = document.querySelectorAll("#f-status button");
+  const paxContainer = document.getElementById("pax-container");
+
+  statusBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      statusBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedStatus = btn.getAttribute("data-val");
+      
+      if (selectedStatus === "Tidak Hadir") {
+        paxContainer.style.display = "none";
+      } else {
+        paxContainer.style.display = "block";
+      }
+    });
+  });
+
+  // Submit RSVP to Google Sheets
+  const submitBtn = document.getElementById("f-submit");
+  submitBtn.addEventListener("click", () => {
+    const nama = document.getElementById("f-name").value.trim();
+    const pax = selectedStatus === "Tidak Hadir" ? 0 : document.getElementById("f-pax").value;
+    const ucapan = document.getElementById("f-msg").value.trim();
+
+    if (!nama) {
+      alert("Sila masukkan nama anda.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "MENGHANTAR...";
+
+    const payload = {
+      nama: nama,
+      status: selectedStatus,
+      pax: pax,
+      ucapan: ucapan
+    };
+
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      alert("Terima kasih! RSVP anda telah berjaya dihantar.");
+      document.getElementById("f-name").value = "";
+      document.getElementById("f-msg").value = "";
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Hantar RSVP";
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Ralat menghantar RSVP. Sila cuba lagi.");
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Hantar RSVP";
+    });
+  });
+
+  // Countdown Timer
   const targetDate = new Date("September 26, 2026 09:00:00").getTime();
   function updateCountdown() {
     const now = new Date().getTime();
