@@ -6,11 +6,11 @@
 <title>Majlis Kesyukuran &amp; Ijab Qabul — Hanaa &amp; Fahim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Google Fonts: Cormorant Garamond & Montserrat -->
+<!-- Google Fonts: Cormorant Garamond, Montserrat, Amiri -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-  /* Import Font Brittany */
+  /* Import Font Brittany Signature */
   @import url('https://fonts.cdnfonts.com/css/brittany-signature');
 
   :root {
@@ -144,7 +144,7 @@
     transform: translateY(0);
   }
 
-  /* ---------- TYPOGRAPHY ---------- */
+  /* ---------- TYPOGRAPHY & SPACING ---------- */
   .eyebrow {
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
@@ -166,30 +166,31 @@
     line-height: 1.3;
   }
 
+  /* Kemas spacing nama script & sub-teks */
   .name-script {
     font-family: 'Brittany Signature', 'Birthstone', cursive;
     font-style: normal;
-    font-size: clamp(40px, 8vw, 52px);
+    font-size: clamp(38px, 7.5vw, 50px);
     font-weight: 400;
     color: var(--olive-deep);
-    line-height: 1.2;
-    margin: 12px 0 6px 0;
+    line-height: 1.35;
+    margin: 16px 0 10px 0;
   }
 
-  .name-sub {
-    font-size: 12px;
+  .parent-sub {
+    font-size: 12.5px;
     color: var(--ink-soft);
-    line-height: 1.6;
-    max-width: 360px;
-    margin: 0 auto;
+    line-height: 1.7;
+    max-width: 320px;
+    margin: 0 auto 12px auto;
   }
 
   .amp-symbol {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 30px;
+    font-size: 28px;
     color: var(--gold);
-    margin: 20px auto;
+    margin: 16px auto;
   }
 
   .bismillah-block { 
@@ -203,7 +204,7 @@
     font-size: 28px;
     color: var(--olive-deep);
     direction: rtl;
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
   }
   
   .header-logo {
@@ -455,8 +456,8 @@
 <!-- OPENING COVER OVERLAY -->
 <div id="opening-cover">
   <div class="envelope-wrapper">
-    <!-- Sampul PNG -->
-    <img src="sampul.png" alt="Sampul Jemputan" class="envelope-img">
+    <!-- Disesuaikan dengan nama fail 'Sampul.png' kat GitHub -->
+    <img src="Sampul.png" alt="Sampul Jemputan" class="envelope-img">
     <button class="open-btn" id="openCardBtn">Buka Kad Jemputan</button>
   </div>
 </div>
@@ -470,7 +471,6 @@
     <div class="title-main">Majlis Kesyukuran &amp; Ijab Qabul</div>
     <div class="bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     
-    <!-- Ganti ke logo green.png -->
     <img src="logo green.png" alt="Logo FH" class="header-logo">
 
     <p class="doa">Assalamu’alaikum Warahmatullahi Wabarakatuh &amp; Salam Sejahtera</p>
@@ -484,13 +484,19 @@
       jemput Dato&rsquo;/Datin/Tuan/Puan/Encik/Cik sekeluarga hadir ke Majlis Kesyukuran &amp; Ijab Qabul puteri kami:
     </p>
 
+    <!-- Pengantin Perempuan -->
     <div class="name-script">Hanaa Najihah</div>
-    <div class="name-sub">Puteri kepada Zulkifli bin Hussin &amp; Anita binti Ibrahim</div>
+    <div class="parent-sub">
+      Puteri kepada Zulkifli bin Hussin<br>&amp; Anita binti Ibrahim
+    </div>
 
     <div class="amp-symbol">&amp;</div>
 
+    <!-- Pengantin Lelaki -->
     <div class="name-script">Muhammad Fahim Irsyad</div>
-    <div class="name-sub">Putera kepada Mohamad Fadzil bin Md Tahir &amp; Siti Shazilla binti Salleh</div>
+    <div class="parent-sub">
+      Putera kepada Mohamad Fadzil bin Md Tahir<br>&amp; Siti Shazilla binti Salleh
+    </div>
   </div>
 
   <!-- EVENT / DATE -->
