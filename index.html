@@ -33,21 +33,21 @@
     background: var(--soft-white);
     color: var(--ink);
     font-family: 'Montserrat', sans-serif;
-    font-style: italic; /* Details in Montserrat Italic */
+    font-style: italic;
     font-weight: 300;
     overflow-x: hidden;
   }
 
   body.no-scroll { overflow: hidden; }
 
-  /* ---------- OPENING COVER (SAMPUL SURAT) ---------- */
+  /* ---------- OPENING COVER OVERLAY ---------- */
   #opening-cover {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #111; /* Latar belakang gelap ringkas */
+    background-color: #111;
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -103,7 +103,7 @@
     transform: translateY(-2px);
   }
 
-  /* ---------- CARD MAIN WRAPPER ---------- */
+  /* ---------- MAIN CARD WRAPPER ---------- */
   .card {
     max-width: 600px;
     margin: 0 auto;
@@ -130,7 +130,7 @@
     margin: 0 auto;
   }
 
-  /* ---------- ANIMATION CLASSES ---------- */
+  /* ---------- ANIMATIONS ---------- */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -142,7 +142,7 @@
     transform: translateY(0);
   }
 
-  /* ---------- TYPOGRAPHY & HEADINGS ---------- */
+  /* ---------- TYPOGRAPHY ---------- */
   .eyebrow {
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
@@ -189,7 +189,6 @@
     margin: 16px auto;
   }
 
-  /* ---------- Header / Logo ---------- */
   .bismillah-block { padding-top: 48px; padding-bottom: 16px; }
   .bismillah-ar {
     font-family: 'Amiri', serif;
@@ -215,23 +214,14 @@
     margin: 0 auto;
   }
 
-  /* ---------- Event / Date ---------- */
+  /* ---------- EVENT & TENTATIF ---------- */
   .event-block {
     background: var(--ivory);
     padding: 36px 28px;
     border-radius: 8px;
   }
-  .event-lead {
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    margin-bottom: 8px;
-  }
-  .event-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
+  .event-lead { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 8px; }
+  .event-details { display: flex; flex-direction: column; align-items: center; gap: 12px; }
   .event-date-row {
     display: flex;
     align-items: center;
@@ -243,37 +233,18 @@
     width: 100%;
     max-width: 300px;
   }
-  .event-day {
-    font-size: 12.5px;
-    text-transform: uppercase;
-    color: var(--olive);
-  }
-  .event-day-num {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    color: var(--ink);
-  }
-  .event-month-year {
-    font-size: 12px;
-    color: var(--ink-soft);
-    text-align: left;
-    text-transform: uppercase;
-  }
+  .event-day { font-size: 12.5px; text-transform: uppercase; color: var(--olive); }
+  .event-day-num { font-style: normal; font-weight: 600; font-size: 36px; color: var(--ink); }
+  .event-month-year { font-size: 12px; color: var(--ink-soft); text-align: left; text-transform: uppercase; }
 
-  /* ---------- Tentatif Section ---------- */
-  .tentative-block {
-    padding-top: 28px;
-    padding-bottom: 28px;
-  }
+  .tentative-block { padding-top: 28px; padding-bottom: 28px; }
   .tentative-list {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto 0 auto;
   }
   .tentative-item {
     display: flex;
@@ -285,72 +256,19 @@
     border-radius: 6px;
     font-size: 13px;
   }
-  .tentative-time {
-    font-style: normal;
-    font-weight: 500;
-    color: var(--olive-deep);
-  }
-  .tentative-event {
-    color: var(--ink);
-  }
+  .tentative-time { font-style: normal; font-weight: 500; color: var(--olive-deep); }
 
-  /* ---------- Countdown ---------- */
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 16px;
-  }
-  .cd-item {
-    background: var(--ivory);
-    border: 1px solid var(--beige);
-    border-radius: 4px;
-    padding: 10px 4px;
-    width: 60px;
-  }
-  .cd-num {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    color: var(--olive-deep);
-    display: block;
-  }
-  .cd-label {
-    font-size: 8.5px;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
+  /* ---------- COUNTDOWN ---------- */
+  .countdown { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
+  .cd-item { background: var(--ivory); border: 1px solid var(--beige); border-radius: 4px; padding: 10px 4px; width: 60px; }
+  .cd-num { font-style: normal; font-weight: 600; font-size: 20px; color: var(--olive-deep); display: block; }
+  .cd-label { font-size: 8.5px; text-transform: uppercase; color: var(--ink-soft); }
 
-  /* ---------- Venue & Buttons ---------- */
-  .venue-card {
-    background: var(--ivory);
-    border: 1px solid var(--beige);
-    border-radius: 6px;
-    padding: 20px;
-    margin-top: 12px;
-    text-align: left;
-  }
-  .venue-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: normal;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--olive-deep);
-    margin: 0 0 6px 0;
-  }
-  .venue-addr {
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    margin: 0 0 14px 0;
-  }
-  .map-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid var(--beige);
-  }
+  /* ---------- VENUE & RSVP ---------- */
+  .venue-card { background: var(--ivory); border: 1px solid var(--beige); border-radius: 6px; padding: 20px; margin-top: 12px; text-align: left; }
+  .venue-name { font-family: 'Cormorant Garamond', serif; font-style: normal; font-size: 18px; font-weight: 600; color: var(--olive-deep); margin: 0 0 6px 0; }
+  .venue-addr { font-size: 12.5px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 14px 0; }
+  .map-img { width: 100%; height: 180px; object-fit: cover; border-radius: 4px; border: 1px solid var(--beige); }
   
   .btn {
     display: inline-block;
@@ -370,65 +288,22 @@
   }
   .btn:hover { background: #c2a06e; }
 
-  /* ---------- RSVP ---------- */
-  .rsvp-form {
-    text-align: left;
-    background: #fff;
-    border: 1px solid var(--beige);
-    border-radius: 8px;
-    padding: 22px 18px;
-  }
+  .rsvp-form { text-align: left; background: #fff; border: 1px solid var(--beige); border-radius: 8px; padding: 22px 18px; }
   .field { margin-bottom: 14px; }
-  .field label {
-    display: block;
-    font-size: 10px;
-    font-style: normal;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--olive-deep);
-    margin-bottom: 6px;
-  }
-  .field input[type=text],
-  .field input[type=number],
-  .field textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--beige);
-    border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    font-style: italic;
-    font-size: 13px;
-    background: var(--soft-white);
+  .field label { display: block; font-size: 10px; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: var(--olive-deep); margin-bottom: 6px; }
+  .field input[type=text], .field input[type=number], .field textarea {
+    width: 100%; padding: 10px; border: 1px solid var(--beige); border-radius: 4px; font-family: 'Montserrat', sans-serif; font-style: italic; font-size: 13px; background: var(--soft-white);
   }
   .seg { display: flex; gap: 8px; }
-  .seg button {
-    flex: 1;
-    padding: 9px 4px;
-    border: 1px solid var(--beige);
-    background: var(--soft-white);
-    border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-size: 11px;
-    cursor: pointer;
-  }
-  .seg button.active {
-    background: var(--olive);
-    color: #fff;
-    border-color: var(--olive);
-  }
+  .seg button { flex: 1; padding: 9px 4px; border: 1px solid var(--beige); background: var(--soft-white); border-radius: 4px; font-family: 'Montserrat', sans-serif; font-style: normal; font-size: 11px; cursor: pointer; }
+  .seg button.active { background: var(--olive); color: #fff; border-color: var(--olive); }
 
-  .rule {
-    width: 36px;
-    height: 1px;
-    background: var(--gold);
-    margin: 20px auto;
-  }
+  .rule { width: 36px; height: 1px; background: var(--gold); margin: 20px auto; }
 </style>
 </head>
 <body class="no-scroll">
 
-<!-- OPENING COVER OVERLAY (SAMPUL SURAT) -->
+<!-- OPENING COVER OVERLAY -->
 <div id="opening-cover">
   <div class="envelope-wrapper">
     <img src="sampul.png" alt="Sampul Jemputan" class="envelope-img">
@@ -445,7 +320,6 @@
     <div class="title-main">Majlis Kesyukuran &amp; Ijab Qabul</div>
     <div class="bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     
-    <!-- Logo PDF / Image -->
     <object class="header-logo" data="logo FH.pdf" type="application/pdf">
       <img src="logo FH.png" alt="Logo FH" class="header-logo">
     </object>
@@ -453,7 +327,7 @@
     <p class="doa">Assalamu’alaikum Warahmatullahi Wabarakatuh &amp; Salam Sejahtera</p>
   </div>
 
-  <!-- HOST & COUPLE (POV Ibu Bapa Pengantin Perempuan) -->
+  <!-- HOST & COUPLE -->
   <div class="block couple-block reveal">
     <p class="doa" style="margin-bottom: 20px;">
       Dengan penuh kesyukuran ke hadrat Allah SWT, kami:<br>
@@ -461,13 +335,11 @@
       jemput Dato&rsquo;/Datin/Tuan/Puan/Encik/Cik sekeluarga hadir ke Majlis Kesyukuran &amp; Ijab Qabul puteri kami:
     </p>
 
-    <!-- Pengantin Perempuan Dahulu -->
     <div class="name-script">Hanaa Najihah</div>
     <div class="name-sub">Puteri kepada Zulkifli bin Hussin &amp; Anita binti Ibrahim</div>
 
     <div class="amp-symbol">&amp;</div>
 
-    <!-- Pengantin Lelaki -->
     <div class="name-script">Muhammad Fahim Irsyad</div>
     <div class="name-sub">Putera kepada Mohamad Fadzil bin Md Tahir &amp; Siti Shazilla binti Salleh</div>
   </div>
@@ -488,7 +360,7 @@
     </div>
   </div>
 
-  <!-- SECTION ATUR CARA / TENTATIF -->
+  <!-- TENTATIF -->
   <div class="block tentative-block reveal">
     <div class="eyebrow">Tentatif</div>
     <div class="title-main">Atur Cara Majlis</div>
@@ -580,7 +452,7 @@
 </div>
 
 <script>
-  // Open Cover Logic
+  // 1. OPEN COVER LOGIC
   const openCardBtn = document.getElementById("openCardBtn");
   const openingCover = document.getElementById("opening-cover");
   const mainCard = document.getElementById("mainCard");
@@ -592,7 +464,7 @@
     triggerScrollAnimations();
   });
 
-  // Intersection Observer for Animations
+  // 2. SCROLL ANIMATION
   function triggerScrollAnimations() {
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver((entries) => {
@@ -606,7 +478,7 @@
     reveals.forEach(el => observer.observe(el));
   }
 
-  // Countdown Timer
+  // 3. COUNTDOWN TIMER
   const targetDate = new Date("September 26, 2026 09:00:00").getTime();
   function updateCountdown() {
     const now = new Date().getTime();
