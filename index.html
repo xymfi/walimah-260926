@@ -3,147 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Walimatul Urus — Fahim &amp; Hanaa</title>
+<title>Majlis Kesyukuran &amp; Ijab Qabul — Hanaa &amp; Fahim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Mrs+Saint+Delafield&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<!-- Google Fonts: Cormorant Garamond & Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --soft-white:#F8F7F3;
-    --ivory:#F2ECE2;
-    --cream:#E9E1D4;
-    --beige:#DCCFBE;
-    --gold:#D4B483;
-    --sage:#A9B59D;
-    --olive:#73835D;
-    --olive-deep:#4E5A3E;
-    --ink:#3A362D;
-    --ink-soft:#7A745F;
-    --maroon:#A65B4A;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--soft-white);
-    color:var(--ink);
-    font-family:'Montserrat',sans-serif;
-    font-weight:300;
-  }
-  .card{
-    max-width:600px;
-    margin:0 auto;
-    position:relative;
-    overflow:hidden;
-    background:var(--soft-white);
-    padding-bottom: 40px;
+  /* Import Font Brittany */
+  @import url('https://fonts.cdnfonts.com/css/brittany-signature');
+
+  :root {
+    --soft-white: #F8F7F3;
+    --ivory: #F2ECE2;
+    --beige: #DCCFBE;
+    --gold: #D4B483;
+    --olive: #73835D;
+    --olive-deep: #4E5A3E;
+    --ink: #3A362D;
+    --ink-soft: #7A745F;
+    --maroon: #A65B4A;
   }
 
-  section, .block{
-    position:relative;
-    z-index:1;
-    padding:32px 28px;
-    text-align:center;
-    max-width:520px;
-    margin:0 auto;
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--soft-white);
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic; /* Details in Montserrat Italic */
+    font-weight: 300;
+    overflow-x: hidden;
   }
 
-  .eyebrow{
-    font-size:11px;
-    letter-spacing:0.32em;
-    text-transform:uppercase;
-    color:var(--olive);
-    margin-bottom:6px;
-  }
-  .title-main{
-    font-size:clamp(22px,5.5vw,28px);
-    font-weight:500;
-    letter-spacing:0.03em;
-    color:var(--ink);
-    margin:0 0 10px 0;
+  body.no-scroll { overflow: hidden; }
+
+  /* ---------- OPENING COVER (SAMPUL SURAT) ---------- */
+  #opening-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111; /* Latar belakang gelap ringkas */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
   }
 
-  /* ---------- Bismillah ---------- */
-  .bismillah-block{padding-top:48px; padding-bottom: 16px;}
-  .bismillah-ar{
-    font-family:'Amiri',serif;
-    font-size:30px;
-    color:var(--olive-deep);
-    direction:rtl;
-    margin:18px 0 16px 0;
-    line-height:1.6;
-  }
-  .doa{
-    font-size:13px;
-    line-height:1.85;
-    color:var(--ink-soft);
-    max-width:380px;
-    margin:0 auto;
+  #opening-cover.open-card {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
   }
 
-  /* ---------- Couple ---------- */
-  .couple-block{
-    padding-top:16px;
-    padding-bottom:28px;
-  }
-  .name-script{
-    font-family:'Birthstone',cursive;
-    font-size:clamp(38px,8.5vw,56px);
-    font-weight:400;
-    color:var(--olive-deep);
-    line-height:1.1;
-    margin:8px 0 6px 0;
-    word-break:keep-all;
-    white-space:normal;
-  }
-  .name-sub{
-    font-size:12px;
-    color:var(--ink-soft);
-    letter-spacing:0.02em;
-    line-height:1.6;
-    max-width:360px;
-    margin:0 auto;
-  }
-  .amp-symbol{
-    font-family:'Mrs Saint Delafield',cursive;
-    font-size:44px;
-    color:var(--gold);
-    margin:32px auto 16px auto; /* Spacing ekstra di atas & bawah */
-    line-height:1;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    width:100%;
-    padding-left:6px; /* Optical center adjustment */
+  .envelope-wrapper {
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    text-align: center;
   }
 
-  /* ---------- Event / Date Table ---------- */
-  .event-block{
-    background:var(--ivory);
-    padding:36px 28px;
+  .envelope-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    display: block;
   }
-  .event-lead{
-    font-size:12.5px;
-    color:var(--ink-soft);
-    margin-bottom:12px;
-    letter-spacing: 0.05em;
-  }
-  .event-name{
-    font-size:14px;
-    letter-spacing:0.12em;
-    color:var(--olive-deep);
-    text-transform:uppercase;
+
+  .open-btn {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 14px 32px;
+    background: var(--olive-deep);
+    color: var(--soft-white);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
     font-weight: 500;
-    margin-bottom:16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   }
-  .event-details{
+
+  .open-btn:hover {
+    background: var(--olive);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- CARD MAIN WRAPPER ---------- */
+  .card {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: var(--soft-white);
+    padding-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+  }
+
+  .card.show-main {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  section, .block {
+    position: relative;
+    z-index: 1;
+    padding: 32px 28px;
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ---------- ANIMATION CLASSES ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- TYPOGRAPHY & HEADINGS ---------- */
+  .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 6px;
+  }
+
+  .title-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-size: clamp(26px, 6vw, 34px);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    margin: 0 0 10px 0;
+  }
+
+  .name-script {
+    font-family: 'Brittany Signature', 'Birthstone', cursive;
+    font-style: normal;
+    font-size: clamp(38px, 8.5vw, 54px);
+    font-weight: 400;
+    color: var(--olive-deep);
+    line-height: 1.2;
+    margin: 8px 0 4px 0;
+  }
+
+  .name-sub {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .amp-symbol {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--gold);
+    margin: 16px auto;
+  }
+
+  /* ---------- Header / Logo ---------- */
+  .bismillah-block { padding-top: 48px; padding-bottom: 16px; }
+  .bismillah-ar {
+    font-family: 'Amiri', serif;
+    font-style: normal;
+    font-size: 30px;
+    color: var(--olive-deep);
+    direction: rtl;
+    margin: 18px 0 16px 0;
+  }
+  
+  .header-logo {
+    width: 140px;
+    height: auto;
+    margin: 16px auto 24px auto;
+    display: block;
+  }
+
+  .doa {
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Event / Date ---------- */
+  .event-block {
+    background: var(--ivory);
+    padding: 36px 28px;
+    border-radius: 8px;
+  }
+  .event-lead {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .event-details {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
   }
-  .event-date-row{
+  .event-date-row {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,234 +243,280 @@
     width: 100%;
     max-width: 300px;
   }
-  .event-day{
+  .event-day {
     font-size: 12.5px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
     color: var(--olive);
-    font-weight: 500;
   }
-  .event-day-num{
-    font-family:'Montserrat',sans-serif;
-    font-weight:600;
-    font-size:36px;
-    color:var(--ink);
-    line-height:1;
+  .event-day-num {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    color: var(--ink);
   }
-  .event-month-year{
-    font-size:12px;
-    color:var(--ink-soft);
-    text-align:left;
-    line-height:1.2;
+  .event-month-year {
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: left;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
-  .event-loc{
-    font-size:12.5px;
-    color:var(--ink-soft);
-    line-height:1.5;
-    letter-spacing: 0.02em;
+
+  /* ---------- Tentatif Section ---------- */
+  .tentative-block {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+  .tentative-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tentative-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: var(--ivory);
+    border: 1px solid var(--beige);
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .tentative-time {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--olive-deep);
+  }
+  .tentative-event {
+    color: var(--ink);
   }
 
   /* ---------- Countdown ---------- */
-  .countdown-block{padding-top:32px; padding-bottom: 32px;}
-  .countdown{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:16px;
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
   }
-  .cd-item{
-    background:var(--ivory);
-    border:1px solid var(--beige);
-    border-radius:4px;
-    padding:10px 4px;
-    width:60px;
+  .cd-item {
+    background: var(--ivory);
+    border: 1px solid var(--beige);
+    border-radius: 4px;
+    padding: 10px 4px;
+    width: 60px;
   }
-  .cd-num{
-    font-family:'Montserrat',sans-serif;
-    font-weight:600;
-    font-size:20px;
-    color:var(--olive-deep);
-    display:block;
+  .cd-num {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--olive-deep);
+    display: block;
   }
-  .cd-label{
-    font-size:8.5px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
+  .cd-label {
+    font-size: 8.5px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
   }
 
-  /* ---------- Venue ---------- */
-  .venue-card{
-    background:var(--ivory);
-    border:1px solid var(--beige);
-    border-radius:6px;
-    padding:20px;
-    margin-top:8px;
-    text-align:left;
+  /* ---------- Venue & Buttons ---------- */
+  .venue-card {
+    background: var(--ivory);
+    border: 1px solid var(--beige);
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 12px;
+    text-align: left;
   }
-  .venue-name{
-    font-size:14.5px;
-    font-weight:500;
-    color:var(--olive-deep);
-    margin:0 0 6px 0;
+  .venue-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--olive-deep);
+    margin: 0 0 6px 0;
   }
-  .venue-addr{font-size:12.5px;color:var(--ink-soft);line-height:1.6;margin:0 0 14px 0;}
-  .map-frame{
-    width:100%;
-    border:0;
-    border-radius:4px;
-    height:190px;
-    display:block;
-    filter:grayscale(0.15) sepia(0.08);
+  .venue-addr {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0 0 14px 0;
   }
-  .btn{
-    display:inline-block;
-    margin-top:14px;
-    padding:10px 22px;
-    background:var(--olive);
-    color:var(--soft-white);
-    text-decoration:none;
-    font-size:11px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    border-radius:3px;
-    border:none;
-    cursor:pointer;
-    font-family:'Montserrat',sans-serif;
-    transition:background 0.25s ease;
+  .map-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--beige);
   }
-  .btn:hover{background:var(--olive-deep);}
-  .btn.gold{background:var(--gold); color:var(--ink);}
-  .btn.gold:hover{background:#c2a06e;}
+  
+  .btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 22px;
+    background: var(--gold);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 11px;
+    font-style: normal;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease;
+  }
+  .btn:hover { background: #c2a06e; }
 
   /* ---------- RSVP ---------- */
-  .rsvp-form{
-    text-align:left;
-    background:#fff;
-    border:1px solid var(--beige);
-    border-radius:8px;
-    padding:22px 18px 18px 18px;
-    box-shadow:0 10px 28px -18px rgba(78,90,62,0.35);
+  .rsvp-form {
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--beige);
+    border-radius: 8px;
+    padding: 22px 18px;
   }
-  .field{margin-bottom:14px;}
-  .field label{
-    display:block;
-    font-size:10px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--olive-deep);
-    margin-bottom:6px;
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-size: 10px;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--olive-deep);
+    margin-bottom: 6px;
   }
   .field input[type=text],
   .field input[type=number],
-  .field textarea{
-    width:100%;
-    padding:10px;
-    border:1px solid var(--beige);
-    border-radius:4px;
-    font-family:'Montserrat',sans-serif;
-    font-size:13px;
-    background:var(--soft-white);
-    color:var(--ink);
+  .field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--beige);
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    background: var(--soft-white);
   }
-  .field textarea{resize:vertical;min-height:60px;}
-  .field input:focus,.field textarea:focus,.seg button:focus{outline:2px solid var(--gold); outline-offset:1px;}
-  .seg{display:flex;gap:8px;}
-  .seg button{
-    flex:1;
-    padding:9px 4px;
-    border:1px solid var(--beige);
-    background:var(--soft-white);
-    border-radius:4px;
-    font-family:'Montserrat',sans-serif;
-    font-size:11.5px;
-    cursor:pointer;
-    color:var(--ink);
-    transition:all 0.15s ease;
+  .seg { display: flex; gap: 8px; }
+  .seg button {
+    flex: 1;
+    padding: 9px 4px;
+    border: 1px solid var(--beige);
+    background: var(--soft-white);
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 11px;
+    cursor: pointer;
   }
-  .seg button.active{
-    background:var(--olive);
-    border-color:var(--olive);
-    color:var(--soft-white);
-  }
-  .rsvp-submit{width:100%;margin-top:4px;padding:12px;font-size:11.5px;}
-  .rsvp-msg{margin-top:10px;font-size:12px;text-align:center;min-height:16px;}
-  .rsvp-msg.ok{color:var(--olive-deep);}
-  .rsvp-msg.err{color:var(--maroon);}
-
-  /* ---------- Closing ---------- */
-  .closing-block{padding-top:36px; padding-bottom: 20px;}
-  .closing-text{
-    font-size:13px;
-    line-height:1.85;
-    color:var(--ink-soft);
-    max-width:380px;
-    margin:0 auto;
+  .seg button.active {
+    background: var(--olive);
+    color: #fff;
+    border-color: var(--olive);
   }
 
-  .rule{
-    width:36px;
-    height:1px;
-    background:var(--gold);
-    margin:20px auto;
+  .rule {
+    width: 36px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto;
   }
 </style>
 </head>
-<body>
+<body class="no-scroll">
 
-<div class="card">
+<!-- OPENING COVER OVERLAY (SAMPUL SURAT) -->
+<div id="opening-cover">
+  <div class="envelope-wrapper">
+    <img src="sampul.png" alt="Sampul Jemputan" class="envelope-img">
+    <button class="open-btn" id="openCardBtn">Buka Kad Jemputan</button>
+  </div>
+</div>
 
-  <!-- BISMILLAH -->
-  <div class="block bismillah-block">
-    <div class="eyebrow">Majlis Perkahwinan</div>
-    <div class="title-main">Walimatul Urus</div>
+<!-- MAIN CARD CONTENT -->
+<div class="card" id="mainCard">
+
+  <!-- BISMILLAH & LOGO -->
+  <div class="block bismillah-block reveal">
+    <div class="eyebrow">Undangan Ke</div>
+    <div class="title-main">Majlis Kesyukuran &amp; Ijab Qabul</div>
     <div class="bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-    <p class="doa">Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan penuh kesyukuran, kami memohon perkenan-Nya untuk melaksanakan pernikahan kami:</p>
+    
+    <!-- Logo PDF / Image -->
+    <object class="header-logo" data="logo FH.pdf" type="application/pdf">
+      <img src="logo FH.png" alt="Logo FH" class="header-logo">
+    </object>
+
+    <p class="doa">Assalamu’alaikum Warahmatullahi Wabarakatuh &amp; Salam Sejahtera</p>
   </div>
 
-  <!-- COUPLE -->
-  <div class="block couple-block">
-    <div class="name-script">Muhammad Fahim Irsyad</div>
-    <div class="name-sub">
-      Putera kepada<br>
-      Mohamad Fadzil bin Md Tahir<br>
-      &amp; Siti Shazilla binti Salleh
-    </div>
+  <!-- HOST & COUPLE (POV Ibu Bapa Pengantin Perempuan) -->
+  <div class="block couple-block reveal">
+    <p class="doa" style="margin-bottom: 20px;">
+      Dengan penuh kesyukuran ke hadrat Allah SWT, kami:<br>
+      <strong style="font-style: normal; color: var(--olive-deep); font-size: 14px;">Zulkifli bin Hussin &amp; Anita binti Ibrahim</strong><br>
+      jemput Dato&rsquo;/Datin/Tuan/Puan/Encik/Cik sekeluarga hadir ke Majlis Kesyukuran &amp; Ijab Qabul puteri kami:
+    </p>
+
+    <!-- Pengantin Perempuan Dahulu -->
+    <div class="name-script">Hanaa Najihah</div>
+    <div class="name-sub">Puteri kepada Zulkifli bin Hussin &amp; Anita binti Ibrahim</div>
 
     <div class="amp-symbol">&amp;</div>
 
-    <div class="name-script">Hanaa Najihah</div>
-    <div class="name-sub">
-      Puteri kepada<br>
-      Zulkifli bin Hussin<br>
-      &amp; Anita binti Ibrahim
-    </div>
+    <!-- Pengantin Lelaki -->
+    <div class="name-script">Muhammad Fahim Irsyad</div>
+    <div class="name-sub">Putera kepada Mohamad Fadzil bin Md Tahir &amp; Siti Shazilla binti Salleh</div>
   </div>
 
   <!-- EVENT / DATE -->
-  <div class="block event-block">
-    <div class="event-lead">Yang akan diraikan pada</div>
-    <div class="event-name">Majlis Akad Nikah</div>
+  <div class="block event-block reveal">
+    <div class="event-lead">Tarikh Majlis</div>
+    <div class="title-main" style="font-size: 22px;">Sabtu, 26 September 2026</div>
     
-    <div class="event-details">
+    <div class="event-details" style="margin-top: 12px;">
       <div class="event-date-row">
         <span class="event-day">Sabtu</span>
         <span style="color:var(--beige);">|</span>
         <span class="event-day-num">26</span>
         <span style="color:var(--beige);">|</span>
-        <span class="event-month-year">September<br>2026</span>
+        <span class="event-month-year">Sept<br>2026</span>
       </div>
-      <div class="event-loc">Rembau, Negeri Sembilan</div>
+    </div>
+  </div>
+
+  <!-- SECTION ATUR CARA / TENTATIF -->
+  <div class="block tentative-block reveal">
+    <div class="eyebrow">Tentatif</div>
+    <div class="title-main">Atur Cara Majlis</div>
+    
+    <div class="tentative-list">
+      <div class="tentative-item">
+        <span class="tentative-time">9.00 AM - 9.30 AM</span>
+        <span class="tentative-event">Akad Nikah</span>
+      </div>
+      <div class="tentative-item">
+        <span class="tentative-time">10.00 AM - 10.30 AM</span>
+        <span class="tentative-event">Makan Beradab</span>
+      </div>
+      <div class="tentative-item">
+        <span class="tentative-time">11.00 AM - 12.00 PM</span>
+        <span class="tentative-event">Sesi Fotografi</span>
+      </div>
+      <div class="tentative-item">
+        <span class="tentative-time">12.30 PM - 5.00 PM</span>
+        <span class="tentative-event">Jamuan Makan</span>
+      </div>
     </div>
   </div>
 
   <!-- COUNTDOWN -->
-  <div class="block countdown-block">
+  <div class="block reveal">
     <div class="eyebrow">Detik Bermakna</div>
-    <div class="title-main" style="font-size:19px;">Menghitung Hari</div>
+    <div class="title-main" style="font-size:22px;">Menghitung Hari</div>
     <div class="countdown" id="countdown">
       <div class="cd-item"><span class="cd-num" id="cd-d">00</span><span class="cd-label">Hari</span></div>
       <div class="cd-item"><span class="cd-num" id="cd-h">00</span><span class="cd-label">Jam</span></div>
@@ -391,165 +526,101 @@
   </div>
 
   <!-- VENUE -->
-  <div class="block venue">
+  <div class="block reveal">
     <div class="eyebrow">Lokasi Majlis</div>
-    <div class="title-main" style="font-size:19px;">Ke Mana Kami Bertandang</div>
     <div class="venue-card">
-      <div class="venue-name">Kediaman Keluarga, Taman Seri Rembau</div>
+      <div class="venue-name">Kediaman Keluarga</div>
       <p class="venue-addr">Lot 3095, Jalan Dato&rsquo; Raja Diraja,<br>Taman Seri Rembau, Fasa 1,<br>71300 Rembau, Negeri Sembilan</p>
-      <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Lot%203095%2C%20Jalan%20Dato%27%20Raja%20Diraja%2C%20Taman%20Seri%20Rembau%2C%20Fasa%201%2C%20Rembau%2C%20Negeri%20Sembilan&output=embed"></iframe>
-      <a class="btn gold" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener">Buka dalam Google Maps</a>
+      
+      <a href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener">
+        <img class="map-img" src="map.png" alt="Lokasi Google Maps">
+      </a>
+      <div style="text-align: center;">
+        <a class="btn" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener">Buka Google Maps</a>
+      </div>
     </div>
   </div>
 
   <!-- RSVP -->
-  <div class="block rsvp" id="rsvp">
+  <div class="block reveal" id="rsvp">
     <div class="eyebrow">RSVP</div>
-    <div class="title-main" style="font-size:19px;">Sahkan Kehadiran Anda</div>
-    <p class="doa" style="margin-bottom:18px;">Bagi memudahkan kami mengatur jamuan, sila sahkan kehadiran sebelum <b style="color:var(--olive-deep);">12 September 2026</b>.</p>
+    <div class="title-main" style="font-size:22px;">Pengesahan Kehadiran</div>
+    <p class="doa" style="margin-bottom:18px;">Sila sahkan kehadiran anda sebelum 12 September 2026.</p>
 
     <div class="rsvp-form">
       <div class="field">
-        <label for="f-name">Nama Penuh</label>
+        <label for="f-name">Nama Tetamu</label>
         <input type="text" id="f-name" placeholder="Nama anda">
       </div>
       <div class="field">
-        <label>Kehadiran</label>
+        <label>Status Kehadiran</label>
         <div class="seg" id="f-status">
           <button type="button" data-val="Hadir" class="active">Hadir</button>
           <button type="button" data-val="Tidak Hadir">Tidak Hadir</button>
-          <button type="button" data-val="Belum Pasti">Belum Pasti</button>
         </div>
       </div>
       <div class="field" id="pax-container">
-        <label for="f-pax">Bilangan Tetamu (termasuk anda)</label>
+        <label for="f-pax">Bilangan Tetamu</label>
         <input type="number" id="f-pax" min="1" max="10" value="1">
       </div>
       <div class="field">
-        <label for="f-msg">Ucapan &amp; Doa Restu (pilihan)</label>
-        <textarea id="f-msg" placeholder="Tinggalkan ucapan untuk pengantin..."></textarea>
+        <label for="f-msg">Ucapan &amp; Doa Restu</label>
+        <textarea id="f-msg" placeholder="Tinggalkan ucapan buat pengantin..."></textarea>
       </div>
-      <button class="btn rsvp-submit" id="f-submit">Hantar RSVP</button>
-      <div class="rsvp-msg" id="f-result"></div>
+      <button class="btn" id="f-submit" style="width: 100%; background: var(--olive-deep); color: #fff;">Hantar RSVP</button>
     </div>
   </div>
 
   <!-- CLOSING -->
-  <div class="block closing-block">
+  <div class="block reveal">
     <div class="rule"></div>
-    <p class="closing-text">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Dato&rsquo;/Datin/Tuan/Puan/Encik/Cik berkenan hadir untuk memberikan doa dan restu.</p>
+    <p class="doa">Semoga kehadiran serta doa restu daripada pihak Tuan/Puan akan menyemarakkan lagi majlis ini dan diberkati Allah SWT.</p>
   </div>
 
 </div>
 
 <script>
-  // 1. COUNTDOWN TIMER
-  const targetDate = new Date("September 26, 2026 09:00:00").getTime();
+  // Open Cover Logic
+  const openCardBtn = document.getElementById("openCardBtn");
+  const openingCover = document.getElementById("opening-cover");
+  const mainCard = document.getElementById("mainCard");
 
+  openCardBtn.addEventListener("click", () => {
+    openingCover.classList.add("open-card");
+    document.body.classList.remove("no-scroll");
+    mainCard.classList.add("show-main");
+    triggerScrollAnimations();
+  });
+
+  // Intersection Observer for Animations
+  function triggerScrollAnimations() {
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  // Countdown Timer
+  const targetDate = new Date("September 26, 2026 09:00:00").getTime();
   function updateCountdown() {
     const now = new Date().getTime();
     const diff = targetDate - now;
 
-    if (diff <= 0) {
-      document.getElementById("countdown").innerHTML = "<p class='doa'>Majlis sedang berlangsung atau telah tamat.</p>";
-      return;
+    if (diff > 0) {
+      document.getElementById("cd-d").textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      document.getElementById("cd-h").textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+      document.getElementById("cd-m").textContent = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      document.getElementById("cd-s").textContent = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
     }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById("cd-d").textContent = String(days).padStart(2, '0');
-    document.getElementById("cd-h").textContent = String(hours).padStart(2, '0');
-    document.getElementById("cd-m").textContent = String(minutes).padStart(2, '0');
-    document.getElementById("cd-s").textContent = String(seconds).padStart(2, '0');
   }
-
   setInterval(updateCountdown, 1000);
   updateCountdown();
-
-  // 2. RSVP BUTTON TOGGLE
-  const statusButtons = document.querySelectorAll("#f-status button");
-  const paxContainer = document.getElementById("pax-container");
-  let selectedStatus = "Hadir";
-
-  statusButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      statusButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      selectedStatus = btn.getAttribute("data-val");
-
-      if (selectedStatus === "Tidak Hadir") {
-        paxContainer.style.display = "none";
-      } else {
-        paxContainer.style.display = "block";
-      }
-    });
-  });
-
-  // 3. HANTAR RSVP KE GOOGLE SHEETS
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5-KexSigLh5eecK52qLlKl87arNlZGf5E9p2khVVS146UbPUzS_Plg3ivt4WrUVxf/exec";
-
-  document.getElementById("f-submit").addEventListener("click", function(e) {
-    e.preventDefault();
-
-    const btnSubmit = document.getElementById("f-submit");
-    const resultDiv = document.getElementById("f-result");
-    const name = document.getElementById("f-name").value.trim();
-    const pax = document.getElementById("f-pax").value;
-    const msg = document.getElementById("f-msg").value.trim();
-
-    if (!name) {
-      resultDiv.className = "rsvp-msg err";
-      resultDiv.textContent = "Sila masukkan nama anda.";
-      return;
-    }
-
-    btnSubmit.disabled = true;
-    btnSubmit.textContent = "Menghantar...";
-    resultDiv.className = "rsvp-msg";
-    resultDiv.textContent = "";
-
-    const payload = {
-      name: name,
-      status: selectedStatus,
-      pax: selectedStatus === "Hadir" ? pax : 0,
-      message: msg
-    };
-
-    // Gunakan text/plain untuk elak masalah CORS Preflight Google Apps Script
-    fetch(SCRIPT_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.result === "success") {
-        resultDiv.className = "rsvp-msg ok";
-        resultDiv.textContent = "Terima kasih! Sahkan kehadiran anda telah direkodkan.";
-        
-        document.getElementById("f-name").value = "";
-        document.getElementById("f-msg").value = "";
-        document.getElementById("f-pax").value = "1";
-      } else {
-        throw new Error(data.error || "Gagal menyimpan data.");
-      }
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      resultDiv.className = "rsvp-msg err";
-      resultDiv.textContent = "Maaf, berlaku ralat. Sila cuba lagi.";
-    })
-    .finally(() => {
-      btnSubmit.disabled = false;
-      btnSubmit.textContent = "Hantar RSVP";
-    });
-  });
 </script>
 
 </body>
