@@ -414,7 +414,7 @@
     border-color: var(--olive); 
   }
 
-  /* WISHES FEED STYLES */
+  /* WISHES FEED STYLES (VERTICAL SCROLL) */
   .wishes-container {
     margin-top: 32px;
     text-align: left;
@@ -423,7 +423,7 @@
   .wishes-title {
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
     color: var(--olive-deep);
     text-align: center;
@@ -433,12 +433,22 @@
   }
 
   .wishes-list {
-    max-height: 320px;
+    max-height: 340px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding-right: 4px;
+    padding-right: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .wishes-list::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .wishes-list::-webkit-scrollbar-thumb {
+    background: var(--beige);
+    border-radius: 4px;
   }
 
   .wish-card {
@@ -446,12 +456,13 @@
     border: 1px solid var(--beige);
     border-radius: 8px;
     padding: 14px 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
   }
 
   .wish-name {
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 12.5px;
     color: var(--olive-deep);
     margin-bottom: 4px;
   }
@@ -465,7 +476,7 @@
 
   /* DOA BAITUL MUSLIM STYLES */
   .doa-baitul-muslim p {
-    font-size: 12px;
+    font-size: 12.5px;
     line-height: 1.85;
     color: var(--ink-soft);
     margin-bottom: 18px;
@@ -709,7 +720,8 @@
 </div>
 
 <script>
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlf7FqMY7a03wRJXih6Acuvr-GLKAE3c8vvuzpNiJiS7ZhjNLyMZgUWNLFkGxOisuq/exec";
+  // Link Apps Script Terbaharu
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6_qMxgAKHcdOaFiWKkV6Hgj0tczENj1hs2QdopLfi-0P3JugCfqH7SxsNHJnylE35/exec";
 
   const openCardBtn = document.getElementById("openCardBtn");
   const openingCover = document.getElementById("opening-cover");
@@ -718,7 +730,7 @@
 
   openCardBtn.addEventListener("click", () => {
     if (bgMusic) {
-      bgMusic.play().catch(err => console.log("Audio Error:", err));
+      bgMusic.play().catch(err => console.log("Audio Error / Play Blocked:", err));
     }
     openingCover.classList.add("open-card");
     document.body.classList.remove("no-scroll");
