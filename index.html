@@ -721,7 +721,7 @@
 
 <script>
   // Link Apps Script Terbaharu
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6_qMxgAKHcdOaFiWKkV6Hgj0tczENj1hs2QdopLfi-0P3JugCfqH7SxsNHJnylE35/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzmWBl8VugfGs6kIk4aiS2uEufDdPSxStlok25cNVLN7ZllYLOOPw1Dv_Ko5q3s4t8/exec";
 
   const openCardBtn = document.getElementById("openCardBtn");
   const openingCover = document.getElementById("opening-cover");
@@ -771,12 +771,13 @@
     });
   });
 
-  // Fetch Wishes from Google Sheet
+  // Fetch Wishes from Google Sheet (Menggunakan text() + JSON.parse untuk elak isu CORS disekat)
   function loadWishes() {
     const listEl = document.getElementById("wishes-list");
     fetch(SCRIPT_URL)
-      .then(res => res.json())
-      .then(data => {
+      .then(res => res.text())
+      .then(textData => {
+        const data = JSON.parse(textData);
         if (!data || data.length === 0) {
           listEl.innerHTML = '<p style="text-align:center; font-size:12px; color:var(--ink-soft);">Belum ada ucapan. Jadilah yang pertama!</p>';
           return;
