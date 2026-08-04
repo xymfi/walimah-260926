@@ -23,79 +23,13 @@
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  
   body{
     margin:0;
     background:var(--soft-white);
     color:var(--ink);
     font-family:'Montserrat',sans-serif;
     font-weight:300;
-    overflow-x:hidden;
   }
-
-  /* Locking Scroll semasa Cover Masih Terbuka */
-  body.no-scroll {
-    overflow: hidden;
-  }
-
-  /* ---------- OPENING COVER OVERLAY ---------- */
-  #opening-cover {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: var(--soft-white);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
-  }
-
-  #opening-cover.open-card {
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .cover-content {
-    max-width: 450px;
-    width: 100%;
-    border: 1px solid var(--beige);
-    padding: 40px 24px;
-    border-radius: 8px;
-    background: var(--ivory);
-    box-shadow: 0 15px 35px rgba(78, 90, 62, 0.1);
-    animation: fadeIn 1.2s ease forwards;
-  }
-
-  .open-btn {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 12px 28px;
-    background: var(--olive-deep);
-    color: var(--soft-white);
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(78,90,62,0.2);
-  }
-
-  .open-btn:hover {
-    background: var(--olive);
-    transform: translateY(-2px);
-  }
-
-  /* ---------- CARD MAIN WRAPPER ---------- */
   .card{
     max-width:600px;
     margin:0 auto;
@@ -103,14 +37,6 @@
     overflow:hidden;
     background:var(--soft-white);
     padding-bottom: 40px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
-  }
-
-  .card.show-main {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   section, .block{
@@ -122,24 +48,6 @@
     margin:0 auto;
   }
 
-  /* ---------- ANIMATION CLASSES ---------- */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ---------- TYPOGRAPHY & ELEMENTS ---------- */
   .eyebrow{
     font-size:11px;
     letter-spacing:0.32em;
@@ -155,7 +63,7 @@
     margin:0 0 10px 0;
   }
 
-  /* ---------- Bismillah & Logo ---------- */
+  /* ---------- Bismillah ---------- */
   .bismillah-block{padding-top:48px; padding-bottom: 16px;}
   .bismillah-ar{
     font-family:'Amiri',serif;
@@ -164,13 +72,6 @@
     direction:rtl;
     margin:18px 0 16px 0;
     line-height:1.6;
-  }
-  .header-logo{
-    width: 140px;
-    height: auto;
-    margin: 16px auto 24px auto;
-    display: block;
-    object-fit: contain;
   }
   .doa{
     font-size:13px;
@@ -207,21 +108,20 @@
     font-family:'Mrs Saint Delafield',cursive;
     font-size:44px;
     color:var(--gold);
-    margin:32px auto 16px auto;
+    margin:32px auto 16px auto; /* Spacing ekstra di atas & bawah */
     line-height:1;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
     width:100%;
-    padding-left:6px;
+    padding-left:6px; /* Optical center adjustment */
   }
 
   /* ---------- Event / Date Table ---------- */
   .event-block{
     background:var(--ivory);
     padding:36px 28px;
-    border-radius: 8px;
   }
   .event-lead{
     font-size:12.5px;
@@ -319,7 +219,7 @@
     border:1px solid var(--beige);
     border-radius:6px;
     padding:20px;
-    margin-top:12px;
+    margin-top:8px;
     text-align:left;
   }
   .venue-name{
@@ -329,27 +229,14 @@
     margin:0 0 6px 0;
   }
   .venue-addr{font-size:12.5px;color:var(--ink-soft);line-height:1.6;margin:0 0 14px 0;}
-  
-  .map-link-wrapper{
-    display:block;
-    position:relative;
+  .map-frame{
     width:100%;
-    border-radius:6px;
-    overflow:hidden;
-    border:1px solid var(--beige);
-    transition:transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .map-link-wrapper:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  .map-img{
-    width:100%;
+    border:0;
+    border-radius:4px;
     height:190px;
-    object-fit:cover;
     display:block;
+    filter:grayscale(0.15) sepia(0.08);
   }
-
   .btn{
     display:inline-block;
     margin-top:14px;
@@ -443,36 +330,20 @@
   }
 </style>
 </head>
-<body class="no-scroll">
+<body>
 
-<!-- OPENING COVER OVERLAY -->
-<div id="opening-cover">
-  <div class="cover-content">
-    <div class="eyebrow">Walimatul Urus</div>
-    <div class="name-script" style="font-size: clamp(42px, 9vw, 60px);">Fahim &amp; Hanaa</div>
-    <p class="doa" style="margin-top:12px;">Sabtu, 26 September 2026</p>
-    <div class="rule"></div>
-    <button class="open-btn" id="openCardBtn">Buka Kad Jemputan</button>
-  </div>
-</div>
+<div class="card">
 
-<!-- MAIN CARD CONTENT -->
-<div class="card" id="mainCard">
-
-  <!-- BISMILLAH & LOGO -->
-  <div class="block bismillah-block reveal">
-    <div class="eyebrow">Majlis Akad Nikah</div>
+  <!-- BISMILLAH -->
+  <div class="block bismillah-block">
+    <div class="eyebrow">Majlis Perkahwinan</div>
     <div class="title-main">Walimatul Urus</div>
     <div class="bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-    
-    <!-- Logo Image -->
-    <img class="header-logo" src="logo green.png" alt="logo FH">
-
     <p class="doa">Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Dengan penuh kesyukuran, kami memohon perkenan-Nya untuk melaksanakan pernikahan kami:</p>
   </div>
 
   <!-- COUPLE -->
-  <div class="block couple-block reveal">
+  <div class="block couple-block">
     <div class="name-script">Muhammad Fahim Irsyad</div>
     <div class="name-sub">
       Putera kepada<br>
@@ -491,7 +362,7 @@
   </div>
 
   <!-- EVENT / DATE -->
-  <div class="block event-block reveal">
+  <div class="block event-block">
     <div class="event-lead">Yang akan diraikan pada</div>
     <div class="event-name">Majlis Akad Nikah</div>
     
@@ -508,7 +379,7 @@
   </div>
 
   <!-- COUNTDOWN -->
-  <div class="block countdown-block reveal">
+  <div class="block countdown-block">
     <div class="eyebrow">Detik Bermakna</div>
     <div class="title-main" style="font-size:19px;">Menghitung Hari</div>
     <div class="countdown" id="countdown">
@@ -520,29 +391,27 @@
   </div>
 
   <!-- VENUE -->
-  <div class="block venue reveal">
-    <div class="eyebrow">Lokasi Majlis Akad Nikah</div>
+  <div class="block venue">
+    <div class="eyebrow">Lokasi Majlis</div>
+    <div class="title-main" style="font-size:19px;">Ke Mana Kami Bertandang</div>
     <div class="venue-card">
       <div class="venue-name">Kediaman Keluarga, Taman Seri Rembau</div>
       <p class="venue-addr">Lot 3095, Jalan Dato&rsquo; Raja Diraja,<br>Taman Seri Rembau, Fasa 1,<br>71300 Rembau, Negeri Sembilan</p>
-      
-      <a class="map-link-wrapper" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener" title="Buka Lokasi dalam Google Maps">
-        <img class="map-img" src="map.png" alt="Lokasi Google Maps">
-      </a>
-
+      <iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Lot%203095%2C%20Jalan%20Dato%27%20Raja%20Diraja%2C%20Taman%20Seri%20Rembau%2C%20Fasa%201%2C%20Rembau%2C%20Negeri%20Sembilan&output=embed"></iframe>
       <a class="btn gold" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener">Buka dalam Google Maps</a>
     </div>
   </div>
 
   <!-- RSVP -->
-  <div class="block rsvp reveal" id="rsvp">
+  <div class="block rsvp" id="rsvp">
     <div class="eyebrow">RSVP</div>
     <div class="title-main" style="font-size:19px;">Sahkan Kehadiran Anda</div>
     <p class="doa" style="margin-bottom:18px;">Bagi memudahkan kami mengatur jamuan, sila sahkan kehadiran sebelum <b style="color:var(--olive-deep);">12 September 2026</b>.</p>
 
     <div class="rsvp-form">
       <div class="field">
-        <label for="f-name">Nama</label>
+        <label for="f-name">Nama Penuh</label>
         <input type="text" id="f-name" placeholder="Nama anda">
       </div>
       <div class="field">
@@ -567,7 +436,7 @@
   </div>
 
   <!-- CLOSING -->
-  <div class="block closing-block reveal">
+  <div class="block closing-block">
     <div class="rule"></div>
     <p class="closing-text">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Dato&rsquo;/Datin/Tuan/Puan/Encik/Cik berkenan hadir untuk memberikan doa dan restu.</p>
   </div>
@@ -575,38 +444,7 @@
 </div>
 
 <script>
-  // 1. OPENING COVER CONTROL & ANIMATION TRIGGER
-  const openCardBtn = document.getElementById("openCardBtn");
-  const openingCover = document.getElementById("opening-cover");
-  const mainCard = document.getElementById("mainCard");
-
-  openCardBtn.addEventListener("click", () => {
-    openingCover.classList.add("open-card");
-    document.body.classList.remove("no-scroll");
-    mainCard.classList.add("show-main");
-    
-    // Mula semak posisi elemen untuk animasi scroll
-    triggerScrollAnimations();
-  });
-
-  // 2. SCROLL REVEAL ANIMATION (Intersection Observer)
-  function triggerScrollAnimations() {
-    const reveals = document.querySelectorAll(".reveal");
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
-      });
-    }, {
-      threshold: 0.15
-    });
-
-    reveals.forEach(el => observer.observe(el));
-  }
-
-  // 3. COUNTDOWN TIMER
+  // 1. COUNTDOWN TIMER
   const targetDate = new Date("September 26, 2026 09:00:00").getTime();
 
   function updateCountdown() {
@@ -632,7 +470,7 @@
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // 4. RSVP BUTTON TOGGLE
+  // 2. RSVP BUTTON TOGGLE
   const statusButtons = document.querySelectorAll("#f-status button");
   const paxContainer = document.getElementById("pax-container");
   let selectedStatus = "Hadir";
@@ -651,7 +489,7 @@
     });
   });
 
-  // 5. HANTAR RSVP KE GOOGLE SHEETS
+  // 3. HANTAR RSVP KE GOOGLE SHEETS
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5-KexSigLh5eecK52qLlKl87arNlZGf5E9p2khVVS146UbPUzS_Plg3ivt4WrUVxf/exec";
 
   document.getElementById("f-submit").addEventListener("click", function(e) {
@@ -681,6 +519,7 @@
       message: msg
     };
 
+    // Gunakan text/plain untuk elak masalah CORS Preflight Google Apps Script
     fetch(SCRIPT_URL, {
       method: "POST",
       headers: {
