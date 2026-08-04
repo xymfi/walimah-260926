@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 
 <style>
-  /* Import Font Brittany Signature */
   @import url('https://fonts.cdnfonts.com/css/brittany-signature');
 
   :root {
@@ -39,7 +38,7 @@
 
   body.no-scroll { overflow: hidden; }
 
-  /* ---------- OPENING COVER OVERLAY ---------- */
+  /* OPENING COVER OVERLAY */
   #opening-cover {
     position: fixed;
     top: 0;
@@ -108,7 +107,7 @@
     transform: translateY(-2px);
   }
 
-  /* ---------- MAIN CARD WRAPPER ---------- */
+  /* MAIN CARD WRAPPER */
   .card {
     max-width: 540px;
     margin: 0 auto;
@@ -126,7 +125,6 @@
     transform: translateY(0);
   }
 
-  /* ---------- SECTION BLOCKS ---------- */
   .block {
     position: relative;
     z-index: 1;
@@ -138,7 +136,6 @@
   .bg-soft { background-color: var(--soft-white); }
   .bg-ivory { background-color: var(--ivory); }
 
-  /* ---------- ANIMATIONS ---------- */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -150,20 +147,6 @@
     transform: translateY(0);
   }
 
-  /* ---------- TYPOGRAPHY & SPACING ---------- */
-  /* BISMILLAH ARAB */
-  .bismillah-ar {
-    font-family: 'Amiri', serif !important;
-    font-style: normal !important;
-    font-weight: 700;
-    font-size: clamp(26px, 6vw, 32px);
-    color: var(--olive-deep);
-    margin: 0 0 16px 0;
-    line-height: 1.3;
-    direction: rtl;
-  }
-
-  /* SUBTITLE UNDANGAN KE */
   .eyebrow-small {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -171,34 +154,10 @@
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--olive);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: block;
   }
 
-  /* TAJUK MAJLIS SATU BLOK (RAPAT) */
-  .title-event-single {
-    font-family: 'Cormorant Garamond', serif !important;
-    font-style: normal !important;
-    font-size: clamp(28px, 6.5vw, 36px);
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--ink);
-    margin: 0 0 24px 0 !important;
-    line-height: 1.05 !important; /* Rapatkan line height */
-  }
-
-  /* Baris Sambungan Tajuk (& Ijab Qabul) */
-  .title-event-single .sub-line {
-    display: block;
-    margin-top: 2px !important; /* Spacing amat rapat */
-    font-family: 'Cormorant Garamond', serif !important;
-    font-style: italic !important; /* Kekal berseni jika mahu, atau tukar normal */
-    font-size: 0.9em;
-    color: var(--gold);
-    font-weight: 400;
-  }
-
-  /* LOGO ATAS */
   .header-logo {
     width: 150px;
     height: auto;
@@ -206,7 +165,6 @@
     display: block;
   }
 
-  /* LOGO BAWAH */
   .footer-logo {
     width: 70px;
     height: auto;
@@ -253,7 +211,6 @@
     margin: 0 auto;
   }
 
-  /* ---------- EVENT & TENTATIF ---------- */
   .event-lead { 
     font-size: 11.5px; 
     color: var(--ink-soft); 
@@ -323,7 +280,6 @@
     color: var(--olive-deep); 
   }
 
-  /* ---------- COUNTDOWN ---------- */
   .countdown { 
     display: flex; 
     justify-content: center; 
@@ -356,7 +312,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* ---------- VENUE & RSVP ---------- */
   .venue-card { 
     background: var(--soft-white); 
     border: 1px solid var(--beige); 
@@ -472,8 +427,8 @@
 </head>
 <body class="no-scroll">
 
-<!-- ELEMEN AUDIO UNTUK LAGU BACKGROUND -->
-<audio id="bg-music" loop>
+<!-- AUDIO ELEMENT FOR LAGU.MP3 -->
+<audio id="bg-music" loop preload="auto">
   <source src="lagu.mp3" type="audio/mpeg">
 </audio>
 
@@ -490,20 +445,26 @@
 
   <!-- SECTION 1: HEADER -->
   <div class="block bg-soft reveal">
-    <!-- 1. Bismillah Arab -->
-    <div class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+    
+    <!-- 1. BISMILLAH TEKS ARAB (INLINE STYLED) -->
+    <div style="font-family: 'Amiri', serif !important; font-weight: 700 !important; font-style: normal !important; font-size: 28px !important; color: #434E35 !important; margin-bottom: 16px !important; direction: rtl !important; line-height: 1.4 !important;">
+      بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+    </div>
 
-    <!-- 2. Tajuk Majlis -->
+    <!-- 2. TAJUK UTAMA (SATU BLOCK & SPACING RAPAT) -->
     <span class="eyebrow-small">UNDANGAN KE</span>
-    <h1 class="title-event-single">
+    
+    <h1 style="font-family: 'Cormorant Garamond', serif !important; font-style: normal !important; font-size: 34px !important; font-weight: 600 !important; color: #2C2923 !important; margin: 0 0 24px 0 !important; line-height: 1.0 !important;">
       Majlis Kesyukuran
-      <span class="sub-line">&amp; Ijab Qabul</span>
+      <span style="display: block !important; margin-top: 4px !important; font-family: 'Cormorant Garamond', serif !important; font-style: italic !important; font-size: 30px !important; font-weight: 400 !important; color: #C2A06E !important;">
+        &amp; Ijab Qabul
+      </span>
     </h1>
     
-    <!-- 3. Logo Green -->
+    <!-- 3. LOGO GREEN -->
     <img src="logo green.png" alt="Logo FH" class="header-logo">
 
-    <!-- 4. Ucapan Salam -->
+    <!-- 4. SALAM -->
     <p class="doa">
       Assalamu’alaikum Warahmatullahi Wabarakatuh<br>
       &amp; Salam Sejahtera
@@ -643,30 +604,23 @@
 </div>
 
 <script>
-  // OPEN COVER & PLAY AUDIO LOGIC
   const openCardBtn = document.getElementById("openCardBtn");
   const openingCover = document.getElementById("opening-cover");
   const mainCard = document.getElementById("mainCard");
   const bgMusic = document.getElementById("bg-music");
 
   openCardBtn.addEventListener("click", () => {
-    // 1. Play Lagu secara automatik
+    // Play Lagu
     if (bgMusic) {
-      bgMusic.play().then(() => {
-        console.log("Audio dimainkan.");
-      }).catch(err => {
-        console.log("Audio gagal autoplay:", err);
-      });
+      bgMusic.play().catch(err => console.log("Audio Error:", err));
     }
 
-    // 2. Animasi Buka Sampul
     openingCover.classList.add("open-card");
     document.body.classList.remove("no-scroll");
     mainCard.classList.add("show-main");
     triggerScrollAnimations();
   });
 
-  // SCROLL ANIMATION
   function triggerScrollAnimations() {
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver((entries) => {
@@ -680,7 +634,6 @@
     reveals.forEach(el => observer.observe(el));
   }
 
-  // COUNTDOWN TIMER
   const targetDate = new Date("September 26, 2026 09:00:00").getTime();
   function updateCountdown() {
     const now = new Date().getTime();
