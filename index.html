@@ -414,75 +414,6 @@
     border-color: var(--olive); 
   }
 
-  /* WISHES FEED STYLES */
-  .wishes-container {
-    margin-top: 32px;
-    text-align: left;
-  }
-
-  .wishes-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--olive-deep);
-    text-align: center;
-    margin-bottom: 16px;
-    border-top: 1px solid var(--beige);
-    padding-top: 24px;
-  }
-
-  .wishes-list {
-    max-height: 320px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding-right: 4px;
-  }
-
-  .wish-card {
-    background: #fff;
-    border: 1px solid var(--beige);
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-
-  .wish-name {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    color: var(--olive-deep);
-    margin-bottom: 4px;
-  }
-
-  .wish-text {
-    font-size: 12px;
-    color: var(--ink-soft);
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  /* DOA BAITUL MUSLIM STYLES */
-  .doa-baitul-muslim p {
-    font-size: 12px;
-    line-height: 1.85;
-    color: var(--ink-soft);
-    margin-bottom: 18px;
-    text-align: center;
-  }
-
-  .arabic-text {
-    font-family: Arial, sans-serif;
-    font-style: normal;
-    direction: rtl;
-    font-size: 20px;
-    color: var(--ink);
-    margin: 16px 0;
-    display: block;
-    line-height: 1.6;
-  }
-
   .rule { 
     width: 40px; 
     height: 1px; 
@@ -619,7 +550,7 @@
     </div>
   </div>
 
-  <!-- SECTION 7: RSVP & UCAPAN FEED -->
+  <!-- SECTION 7: RSVP -->
   <div class="block bg-soft reveal" id="rsvp">
     <span class="eyebrow-small">RSVP</span>
     <h2 style="font-family:'Cormorant Garamond', serif; font-style:normal; font-size:22px; margin: 0;">Pengesahan Kehadiran</h2>
@@ -647,45 +578,122 @@
       </div>
       <button class="btn" id="f-submit" style="width: 100%; background: var(--olive-deep); color: #fff;">Hantar RSVP</button>
     </div>
-
-    <!-- RUANGAN UCAPAN & DOA RESTU -->
-    <div class="wishes-container">
-      <div class="wishes-title">Ucapan &amp; Doa Restu</div>
-      <div class="wishes-list" id="wishes-list">
-        <p style="text-align:center; font-size:12px; color:var(--ink-soft);">Memuatkan ucapan...</p>
-      </div>
-    </div>
   </div>
 
-  <!-- SECTION 8: DOA SEBUAH BAITUL MUSLIM -->
-  <div class="block bg-ivory reveal doa-baitul-muslim">
-    <span class="eyebrow-small" style="margin-bottom: 12px;">DOA SEBUAH BAITUL MUSLIM</span>
+  <!-- SECTION 8: CLOSING -->
+  <div class="block bg-ivory reveal">
+    <div class="rule"></div>
+    <p class="doa">Semoga kehadiran serta doa restu daripada pihak Tuan/Puan akan menyemarakkan lagi majlis ini dan diberkati Allah SWT.</p>
     
-    <span class="arabic-text" style="font-size: 26px; text-align: center;">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+    <img src="logo green.png" alt="Logo FH Small" class="footer-logo">
+  </div>
 
-    <p>
-      Ya Allah, Tuhan Yang Maha Pengasih lagi Maha Penyayang,<br>
-      Dengan penuh rasa syukur kami memohon kepada-Mu, redailah penyatuan dua hati ini yang diikat dengan akad yang Engkau muliakan sebagai <i>Mitsāqan Ghalīẓā</i> (<span class="arabic-text" style="display:inline; font-size:16px;">مِّيثَٰقًا غَلِيظًا</span>) — sebuah perjanjian yang kukuh, suci dan diberkati. Teguhkanlah mereka dalam memelihara amanah ini dengan iman, ihsan dan takwa hingga ke akhir hayat.
-    </p>
+</div>
 
-    <p>
-      Jadikanlah rumah tangga yang dibina ini sebuah Baitul Muslim yang berteraskan al-Quran dan sunnah; dipenuhi sakinah, disuburkan dengan mawaddah, dilimpahi rahmah, serta sentiasa mengundang keberkatan dan reda-Mu.
-    </p>
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlf7FqMY7a03wRJXih6Acuvr-GLKAE3c8vvuzpNiJiS7ZhjNLyMZgUWNLFkGxOisuq/exec";
 
-    <p>
-      Kurniakanlah kepada mereka kasih yang meneladani kemuliaan cinta Rasulullah ﷺ dan Sayyidatina Khadijah r.a.; kasih yang saling menguatkan dalam dakwah, perjuangan, kesabaran, dan pengorbanan. Anugerahkan juga kepada mereka keteguhan hati dan kesucian jiwa sebagaimana rumah tangga Sayyidina Ali k.w. dan Sayyidatina Fatimah az-Zahra r.a., yang dibina atas dasar takwa, ilmu dan ketaatan kepada-Mu.
-    </p>
+  const openCardBtn = document.getElementById("openCardBtn");
+  const openingCover = document.getElementById("opening-cover");
+  const mainCard = document.getElementById("mainCard");
+  const bgMusic = document.getElementById("bg-music");
 
-    <p>
-      Ya Allah, kurniakanlah kepada mereka zuriat yang soleh lagi musleh; generasi yang mencintai al-Quran, menghidupkan sunnah Rasul-Mu, menjadi penyejuk hati kedua ibu bapanya, serta membesar sebagai hamba-hamba-Mu yang teguh memperjuangkan agama-Mu dengan hikmah, ilmu dan akhlak.
-    </p>
+  openCardBtn.addEventListener("click", () => {
+    if (bgMusic) {
+      bgMusic.play().catch(err => console.log("Audio Error:", err));
+    }
+    openingCover.classList.add("open-card");
+    document.body.classList.remove("no-scroll");
+    mainCard.classList.add("show-main");
+    triggerScrollAnimations();
+  });
 
-    <p>
-      Jadikanlah keluarga ini sebuah kubu pertahanan agama-Mu, tempat lahirnya insan-insan yang menyeru kepada kebenaran, mempertahankan Islam, menyebarkan rahmat kepada seluruh alam, dan menjadi saham amal yang berpanjangan hingga ke akhir hayat.
-    </p>
+  function triggerScrollAnimations() {
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.1 });
 
-    <p>
-      Himpunkanlah mereka dalam kasih yang tidak terputus oleh dunia, sehingga Engkau mempertemukan mereka kembali di taman-taman syurga bersama para nabi, para siddiqin, para syuhada' dan orang-orang yang Engkau kasihi.
-    </p>
+    reveals.forEach(el => observer.observe(el));
+  }
 
-    <span class="arabic-text" style="text-align: center;">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَٰجِنَا وَذُرِّيَّٰتِنَا قُرَّةَ أَعْيُنٍ وَٱجْعَلْن
+  // Segment Button Logic (Hadir / Tidak Hadir)
+  let selectedStatus = "Hadir";
+  const statusBtns = document.querySelectorAll("#f-status button");
+  const paxContainer = document.getElementById("pax-container");
+
+  statusBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      statusBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedStatus = btn.getAttribute("data-val");
+      
+      if (selectedStatus === "Tidak Hadir") {
+        paxContainer.style.display = "none";
+      } else {
+        paxContainer.style.display = "block";
+      }
+    });
+  });
+
+  // Submit RSVP to Google Sheets
+  const submitBtn = document.getElementById("f-submit");
+  submitBtn.addEventListener("click", () => {
+    const nama = document.getElementById("f-name").value.trim();
+    const pax = selectedStatus === "Tidak Hadir" ? 0 : document.getElementById("f-pax").value;
+    const ucapan = document.getElementById("f-msg").value.trim();
+
+    if (!nama) {
+      alert("Sila masukkan nama anda.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "MENGHANTAR...";
+
+    const payload = {
+      nama: nama,
+      status: selectedStatus,
+      pax: pax,
+      ucapan: ucapan
+    };
+
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      alert("Terima kasih! RSVP anda telah berjaya dihantar.");
+      document.getElementById("f-name").value = "";
+      document.getElementById("f-msg").value = "";
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Hantar RSVP";
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Ralat menghantar RSVP. Sila cuba lagi.");
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Hantar RSVP";
+    });
+  });
+
+  // Countdown Timer
+  const targetDate = new Date("September 26, 2026 09:00:00").getTime();
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff > 0) {
+      document.getElementById("cd-d").textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      document.getElementById("cd-h").textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+      document.getElementById("cd-m").textContent = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      document.getElementById("cd-s").textContent = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+    }
+  }
+ 
