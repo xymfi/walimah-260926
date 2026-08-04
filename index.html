@@ -6,8 +6,8 @@
 <title>Majlis Kesyukuran &amp; Ijab Qabul — Hanaa &amp; Fahim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Google Fonts: Cormorant Garamond, Montserrat, Amiri (Khat/Thuluth-style) -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<!-- Google Fonts: Cormorant Garamond & Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 
 <style>
   /* Import Font Brittany Signature */
@@ -151,44 +151,58 @@
   }
 
   /* ---------- TYPOGRAPHY & SPACING ---------- */
-  .eyebrow {
+  /* Bismillah Font Biasa (Serif) */
+  .bismillah-text {
     font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(20px, 4.5vw, 26px);
+    color: var(--olive-deep);
+    margin: 0 0 24px 0;
+    letter-spacing: 0.02em;
+  }
+
+  /* Subtitle Kecil */
+  .eyebrow-small {
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
-    font-size: 13px;
-    letter-spacing: 0.22em;
+    font-size: 11px;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--olive);
     margin-bottom: 8px;
+    display: block;
   }
 
-  .title-main {
+  /* Tajuk Utama Majlis Kesyukuran */
+  .title-event {
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
-    font-size: clamp(26px, 5.5vw, 32px);
+    font-size: clamp(28px, 6vw, 36px);
     font-weight: 600;
     letter-spacing: 0.02em;
     color: var(--ink);
-    margin: 0 0 16px 0;
-    line-height: 1.3;
+    margin: 0;
+    line-height: 1.2;
   }
 
-  /* Bismillah Gaya Khat / Thuluth & Saiz Besar */
-  .bismillah-ar {
-    font-family: 'Amiri', serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: clamp(32px, 7vw, 42px);
-    color: var(--olive-deep);
-    direction: rtl;
-    margin: 10px 0 24px 0;
-    line-height: 1.4;
+  /* Space + & Ijab Qabul */
+  .title-event-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(24px, 5vw, 30px);
+    font-weight: 400;
+    color: var(--gold);
+    margin-top: 14px;
+    margin-bottom: 28px;
+    display: block;
   }
 
-  /* Logo Atas - Saiz Ditingkatkan */
+  /* Logo Atas */
   .header-logo {
     width: 160px;
     height: auto;
-    margin: 12px auto 28px auto;
+    margin: 0 auto 28px auto;
     display: block;
   }
 
@@ -469,19 +483,27 @@
 <!-- MAIN CARD CONTENT -->
 <div class="card" id="mainCard">
 
-  <!-- SECTION 1: HEADER (BISMILLAH ATAS SEKALI, LOGO BESAR & SALAM BARIS BAWAH) -->
+  <!-- SECTION 1: HEADER (BISMILLAH BIASA, TAJUK MAJLIS, LOGO, SALAM) -->
   <div class="block bg-soft reveal">
-    <div class="bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <!-- Bismillah Font Biasa -->
+    <div class="bismillah-text">Bismillahirrahmanirrahim</div>
+
+    <!-- Tajuk Majlis -->
+    <span class="eyebrow-small">UNDANGAN KE</span>
+    <h1 class="title-event">Majlis Kesyukuran</h1>
+    <span class="title-event-sub">&amp; Ijab Qabul</span>
     
+    <!-- Logo Green -->
     <img src="logo green.png" alt="Logo FH" class="header-logo">
 
+    <!-- Ucapan Salam -->
     <p class="doa">
       Assalamu’alaikum Warahmatullahi Wabarakatuh<br>
       &amp; Salam Sejahtera
     </p>
   </div>
 
-  <!-- SECTION 2: HOST & COUPLE (TEXT TUKAR KEPADA 'DENGAN RASA PENUH KESYUKURAN...') -->
+  <!-- SECTION 2: HOST & COUPLE -->
   <div class="block bg-ivory reveal">
     <p class="doa" style="margin-bottom: 32px;">
       DENGAN RASA PENUH KESYUKURAN DAN RENDAH DIRI KAMI MENJEMPUT<br>
@@ -507,7 +529,7 @@
   <!-- SECTION 3: EVENT / DATE -->
   <div class="block bg-soft reveal">
     <div class="event-lead">Tarikh Majlis</div>
-    <div class="title-main" style="font-size: 22px; margin-bottom: 0;">Sabtu, 26 September 2026</div>
+    <div style="font-family:'Cormorant Garamond', serif; font-style:normal; font-size: 22px; font-weight:600; color:var(--ink);">Sabtu, 26 September 2026</div>
     
     <div class="event-details">
       <div class="event-date-row">
@@ -522,8 +544,8 @@
 
   <!-- SECTION 4: TENTATIF -->
   <div class="block bg-ivory reveal">
-    <div class="eyebrow">Tentatif</div>
-    <div class="title-main">Atur Cara Majlis</div>
+    <span class="eyebrow-small">TENTATIF</span>
+    <h2 class="title-event" style="font-size: 26px;">Atur Cara Majlis</h2>
     
     <div class="tentative-list">
       <div class="tentative-item">
@@ -547,8 +569,8 @@
 
   <!-- SECTION 5: COUNTDOWN -->
   <div class="block bg-soft reveal">
-    <div class="eyebrow">Detik Bermakna</div>
-    <div class="title-main" style="font-size:22px;">Menghitung Hari</div>
+    <span class="eyebrow-small">DETIK BERMAKNA</span>
+    <h2 class="title-event" style="font-size:22px;">Menghitung Hari</h2>
     <div class="countdown" id="countdown">
       <div class="cd-item"><span class="cd-num" id="cd-d">00</span><span class="cd-label">Hari</span></div>
       <div class="cd-item"><span class="cd-num" id="cd-h">00</span><span class="cd-label">Jam</span></div>
@@ -559,7 +581,7 @@
 
   <!-- SECTION 6: VENUE -->
   <div class="block bg-ivory reveal">
-    <div class="eyebrow">Lokasi Majlis</div>
+    <span class="eyebrow-small">LOKASI MAJLIS</span>
     <div class="venue-card">
       <div class="venue-name">Kediaman Keluarga</div>
       <p class="venue-addr">Lot 3095, Jalan Dato&rsquo; Raja Diraja,<br>Taman Seri Rembau, Fasa 1,<br>71300 Rembau, Negeri Sembilan</p>
@@ -575,8 +597,8 @@
 
   <!-- SECTION 7: RSVP -->
   <div class="block bg-soft reveal" id="rsvp">
-    <div class="eyebrow">RSVP</div>
-    <div class="title-main" style="font-size:22px;">Pengesahan Kehadiran</div>
+    <span class="eyebrow-small">RSVP</span>
+    <h2 class="title-event" style="font-size:22px;">Pengesahan Kehadiran</h2>
     <p class="doa" style="margin-bottom:18px;">Sila sahkan kehadiran anda sebelum 12 September 2026.</p>
 
     <div class="rsvp-form">
@@ -603,7 +625,7 @@
     </div>
   </div>
 
-  <!-- SECTION 8: CLOSING (LENGKAP LOGO GREEN KECIK DI BAWAH) -->
+  <!-- SECTION 8: CLOSING -->
   <div class="block bg-ivory reveal">
     <div class="rule"></div>
     <p class="doa">Semoga kehadiran serta doa restu daripada pihak Tuan/Puan akan menyemarakkan lagi majlis ini dan diberkati Allah SWT.</p>
@@ -614,7 +636,7 @@
 </div>
 
 <script>
-  // 1. OPEN COVER LOGIC
+  // OPEN COVER LOGIC
   const openCardBtn = document.getElementById("openCardBtn");
   const openingCover = document.getElementById("opening-cover");
   const mainCard = document.getElementById("mainCard");
@@ -626,7 +648,7 @@
     triggerScrollAnimations();
   });
 
-  // 2. SCROLL ANIMATION
+  // SCROLL ANIMATION
   function triggerScrollAnimations() {
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver((entries) => {
@@ -640,7 +662,7 @@
     reveals.forEach(el => observer.observe(el));
   }
 
-  // 3. COUNTDOWN TIMER
+  // COUNTDOWN TIMER
   const targetDate = new Date("September 26, 2026 09:00:00").getTime();
   function updateCountdown() {
     const now = new Date().getTime();
