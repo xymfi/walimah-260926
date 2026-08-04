@@ -6,8 +6,8 @@
 <title>Majlis Kesyukuran &amp; Ijab Qabul — Hanaa &amp; Fahim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Google Fonts: Cormorant Garamond & Montserrat -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<!-- Google Fonts: Cormorant Garamond, Montserrat & Traditional Arabic -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
   /* Import Font Brittany Signature */
@@ -151,18 +151,19 @@
   }
 
   /* ---------- TYPOGRAPHY & SPACING ---------- */
-  /* Bismillah Font Biasa (Serif) */
-  .bismillah-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
+  /* Bismillah Teks Arab */
+  .bismillah-ar {
+    font-family: 'Amiri', serif;
+    font-style: normal;
     font-weight: 400;
-    font-size: clamp(20px, 4.5vw, 26px);
+    font-size: clamp(24px, 5.5vw, 30px);
     color: var(--olive-deep);
-    margin: 0 0 24px 0;
-    letter-spacing: 0.02em;
+    direction: rtl;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
   }
 
-  /* Subtitle Kecil */
+  /* Subtitle Kecil UNDANGAN KE */
   .eyebrow-small {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -170,32 +171,27 @@
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--olive);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: block;
   }
 
-  /* Tajuk Utama Majlis Kesyukuran */
-  .title-event {
+  /* Tajuk Utama Tunggal (Majlis Kesyukuran & Ijab Qabul) */
+  .title-event-single {
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
-    font-size: clamp(28px, 6vw, 36px);
+    font-size: clamp(28px, 6.5vw, 36px);
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     color: var(--ink);
-    margin: 0;
-    line-height: 1.2;
+    margin: 0 0 28px 0;
+    line-height: 1.15;
   }
 
-  /* Space + & Ijab Qabul */
-  .title-event-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(24px, 5vw, 30px);
-    font-weight: 400;
-    color: var(--gold);
-    margin-top: 14px;
-    margin-bottom: 28px;
+  /* Baris kedua tajuk dengan jarak Rapat */
+  .title-event-single span.sub-line {
     display: block;
+    margin-top: 4px; /* Rapatkan spacing */
+    font-weight: 600;
   }
 
   /* Logo Atas */
@@ -472,6 +468,9 @@
 </head>
 <body class="no-scroll">
 
+<!-- AUDIO BACKGROUND PLAYER -->
+<audio id="bg-music" src="lagu.mp3" preload="auto" loop></audio>
+
 <!-- OPENING COVER OVERLAY -->
 <div id="opening-cover">
   <div class="envelope-wrapper">
@@ -483,15 +482,17 @@
 <!-- MAIN CARD CONTENT -->
 <div class="card" id="mainCard">
 
-  <!-- SECTION 1: HEADER (BISMILLAH BIASA, TAJUK MAJLIS, LOGO, SALAM) -->
+  <!-- SECTION 1: HEADER (BISMILLAH ARAB, TAJUK SINGLE, LOGO, SALAM) -->
   <div class="block bg-soft reveal">
-    <!-- Bismillah Font Biasa -->
-    <div class="bismillah-text">Bismillahirrahmanirrahim</div>
+    <!-- Bismillah Teks Arab -->
+    <div class="bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
 
-    <!-- Tajuk Majlis -->
+    <!-- Tajuk Utama Tunggal -->
     <span class="eyebrow-small">UNDANGAN KE</span>
-    <h1 class="title-event">Majlis Kesyukuran</h1>
-    <span class="title-event-sub">&amp; Ijab Qabul</span>
+    <h1 class="title-event-single">
+      Majlis Kesyukuran
+      <span class="sub-line">&amp; Ijab Qabul</span>
+    </h1>
     
     <!-- Logo Green -->
     <img src="logo green.png" alt="Logo FH" class="header-logo">
@@ -545,7 +546,7 @@
   <!-- SECTION 4: TENTATIF -->
   <div class="block bg-ivory reveal">
     <span class="eyebrow-small">TENTATIF</span>
-    <h2 class="title-event" style="font-size: 26px;">Atur Cara Majlis</h2>
+    <h2 class="title-event-single" style="font-size: 26px; margin-bottom: 0;">Atur Cara Majlis</h2>
     
     <div class="tentative-list">
       <div class="tentative-item">
@@ -570,7 +571,7 @@
   <!-- SECTION 5: COUNTDOWN -->
   <div class="block bg-soft reveal">
     <span class="eyebrow-small">DETIK BERMAKNA</span>
-    <h2 class="title-event" style="font-size:22px;">Menghitung Hari</h2>
+    <h2 class="title-event-single" style="font-size:22px; margin-bottom: 0;">Menghitung Hari</h2>
     <div class="countdown" id="countdown">
       <div class="cd-item"><span class="cd-num" id="cd-d">00</span><span class="cd-label">Hari</span></div>
       <div class="cd-item"><span class="cd-num" id="cd-h">00</span><span class="cd-label">Jam</span></div>
@@ -598,7 +599,7 @@
   <!-- SECTION 7: RSVP -->
   <div class="block bg-soft reveal" id="rsvp">
     <span class="eyebrow-small">RSVP</span>
-    <h2 class="title-event" style="font-size:22px;">Pengesahan Kehadiran</h2>
+    <h2 class="title-event-single" style="font-size:22px; margin-bottom: 0;">Pengesahan Kehadiran</h2>
     <p class="doa" style="margin-bottom:18px;">Sila sahkan kehadiran anda sebelum 12 September 2026.</p>
 
     <div class="rsvp-form">
@@ -636,12 +637,20 @@
 </div>
 
 <script>
-  // OPEN COVER LOGIC
+  // OPEN COVER LOGIC & AUDIO AUTOPLAY
   const openCardBtn = document.getElementById("openCardBtn");
   const openingCover = document.getElementById("opening-cover");
   const mainCard = document.getElementById("mainCard");
+  const bgMusic = document.getElementById("bg-music");
 
   openCardBtn.addEventListener("click", () => {
+    // Play Background Music
+    if (bgMusic) {
+      bgMusic.play().catch(error => {
+        console.log("Autoplay ditahan oleh pelayar:", error);
+      });
+    }
+
     openingCover.classList.add("open-card");
     document.body.classList.remove("no-scroll");
     mainCard.classList.add("show-main");
