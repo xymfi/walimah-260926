@@ -41,6 +41,27 @@
 
   body.no-scroll { overflow: hidden; }
 
+  /* PAKSA SOROK TEKS JAMUAN MAKAN ATAU ELEMEN TAMBAHAN DALAM TENTATIF */
+  .tentative-box * :not(.tentative-time),
+  .tentative-event,
+  span[class*="event"],
+  div[class*="event"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .tentative-box .tentative-time {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 100% !important;
+  }
+
   #opening-cover {
     position: fixed;
     top: 0;
@@ -608,8 +629,8 @@
     <span class="eyebrow-small">TENTATIF</span>
     <h2 style="font-family:'Cormorant Garamond', serif; font-style:normal; font-size:28px; font-weight: 600; color: #2C2923; margin: 0 0 24px 0;">Atur Cara Majlis</h2>
     
-    <div style="background: #F8F7F3 !important; border: 1px solid #E6DCCF !important; border-radius: 12px !important; padding: 18px 24px !important; max-width: 380px !important; margin: 0 auto !important; box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important; text-align: center !important;">
-      <span style="font-family: 'Montserrat', sans-serif !important; font-style: normal !important; font-weight: 600 !important; font-size: 16px !important; color: #434E35 !important; letter-spacing: 0.08em !important; display: block !important; width: 100 !important;">
+    <div class="tentative-box" style="background: #F8F7F3 !important; border: 1px solid #E6DCCF !important; border-radius: 12px !important; padding: 18px 24px !important; max-width: 380px !important; margin: 0 auto !important; box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important; text-align: center !important; display: flex !important; justify-content: center !important; align-items: center !important;">
+      <span class="tentative-time" style="font-family: 'Montserrat', sans-serif !important; font-style: normal !important; font-weight: 600 !important; font-size: 16px !important; color: #434E35 !important; letter-spacing: 0.08em !important; text-align: center !important;">
         11.30 AM - 4.30 PM
       </span>
     </div>
