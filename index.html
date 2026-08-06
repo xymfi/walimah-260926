@@ -393,7 +393,6 @@
     border-color: var(--olive); 
   }
 
-  /* WISHES FEED STYLES (HORIZONTAL CAROUSEL) */
   .wishes-container {
     margin-top: 32px;
     text-align: left;
@@ -458,7 +457,6 @@
     word-break: break-word;
   }
 
-  /* DOA BAITUL MUSLIM STYLES */
   .doa-baitul-muslim p {
     font-size: 12.5px;
     line-height: 1.85;
@@ -478,7 +476,6 @@
     line-height: 1.6;
   }
 
-  /* CONTACT SECTION STYLES */
   .contact-card {
     background: #fff;
     border: 1px solid var(--beige);
@@ -606,13 +603,13 @@
     </div>
   </div>
 
-  <!-- SECTION 4: TENTATIF (PURE HTML & CSS BOX - TANPA IMEJ) -->
+  <!-- SECTION 4: TENTATIF (HANYA MASA DITENGAH-TENGAH) -->
   <div class="block bg-ivory reveal">
     <span class="eyebrow-small">TENTATIF</span>
     <h2 style="font-family:'Cormorant Garamond', serif; font-style:normal; font-size:28px; font-weight: 600; color: #2C2923; margin: 0 0 24px 0;">Atur Cara Majlis</h2>
     
-    <div style="background: #F8F7F3 !important; border: 1px solid #E6DCCF !important; border-radius: 12px !important; padding: 18px 24px !important; max-width: 380px !important; margin: 0 auto !important; box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important;">
-      <span style="font-family: 'Montserrat', sans-serif !important; font-style: normal !important; font-weight: 600 !important; font-size: 16px !important; color: #434E35 !important; letter-spacing: 0.08em !important; text-align: center !important; display: block !important; width: 100% !important;">
+    <div style="background: #F8F7F3 !important; border: 1px solid #E6DCCF !important; border-radius: 12px !important; padding: 18px 24px !important; max-width: 380px !important; margin: 0 auto !important; box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important; text-align: center !important;">
+      <span style="font-family: 'Montserrat', sans-serif !important; font-style: normal !important; font-weight: 600 !important; font-size: 16px !important; color: #434E35 !important; letter-spacing: 0.08em !important; display: block !important; width: 100 !important;">
         11.30 AM - 4.30 PM
       </span>
     </div>
@@ -675,7 +672,7 @@
       <button class="btn" id="f-submit" style="width: 100%; background: var(--olive-deep); color: #fff;">Hantar RSVP</button>
     </div>
 
-    <!-- RUANGAN UCAPAN & DOA RESTU (HORIZONTAL SLIDER) -->
+    <!-- RUANGAN UCAPAN & DOA RESTU -->
     <div class="wishes-container">
       <div class="wishes-title">Ucapan &amp; Doa Restu</div>
       <div class="wishes-list" id="wishes-list">
@@ -760,7 +757,6 @@
 </div>
 
 <script>
-  // Link Apps Script Terbaharu
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzmWBl8VugfGs6kIk4aiS2uEufDdPSxStlok25cNVLN7ZllYLOOPw1Dv_Ko5q3s4t8/exec";
 
   const openCardBtn = document.getElementById("openCardBtn");
@@ -792,7 +788,6 @@
     reveals.forEach(el => observer.observe(el));
   }
 
-  // Segment Button Logic (Hadir / Tidak Hadir)
   let selectedStatus = "Hadir";
   const statusBtns = document.querySelectorAll("#f-status button");
   const paxContainer = document.getElementById("pax-container");
@@ -811,7 +806,6 @@
     });
   });
 
-  // Fetch Wishes from Google Sheet
   function loadWishes() {
     const listEl = document.getElementById("wishes-list");
     fetch(SCRIPT_URL)
@@ -841,7 +835,6 @@
     return div.innerHTML;
   }
 
-  // Submit RSVP to Google Sheets
   const submitBtn = document.getElementById("f-submit");
   submitBtn.addEventListener("click", () => {
     const nama = document.getElementById("f-name").value.trim();
@@ -885,7 +878,6 @@
     });
   });
 
-  // Countdown Timer
   const targetDate = new Date("September 26, 2026 11:30:00").getTime();
   function updateCountdown() {
     const now = new Date().getTime();
