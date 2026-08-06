@@ -1,11 +1,906 @@
-<!-- SECTION 4: TENTATIF (MASA SAHAJA) -->
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walimatulurus — Hanaa &amp; Fahim</title>
+
+<!-- Favicon (Ikon pada Tab Browser) -->
+<link rel="icon" type="image/png" href="logo green.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+  @import url('https://fonts.cdnfonts.com/css/brittany-signature');
+
+  :root {
+    --soft-white: #F8F7F3;
+    --ivory: #F2ECE2;
+    --beige: #E6DCCF;
+    --gold: #C2A06E;
+    --olive: #6B7B58;
+    --olive-deep: #434E35;
+    --ink: #2C2923;
+    --ink-soft: #635E52;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--soft-white);
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  body.no-scroll { overflow: hidden; }
+
+  #opening-cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--ivory);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+  }
+
+  #opening-cover.open-card {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .envelope-wrapper {
+    max-width: 380px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .envelope-img {
+    width: 100%;
+    height: auto;
+    border: none;
+    outline: none;
+    background: transparent;
+    filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.12));
+    display: block;
+    object-fit: contain;
+  }
+
+  .open-btn {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 14px 38px;
+    background: var(--olive-deep);
+    color: var(--soft-white);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(67, 78, 53, 0.25);
+  }
+
+  .open-btn:hover {
+    background: var(--olive);
+    transform: translateY(-2px);
+  }
+
+  .card {
+    max-width: 540px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: var(--soft-white);
+    padding: 0 0 60px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+  }
+
+  .card.show-main {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .block {
+    position: relative;
+    z-index: 1;
+    padding: 48px 24px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .bg-soft { background-color: var(--soft-white); }
+  .bg-ivory { background-color: var(--ivory); }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .eyebrow-small {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .header-logo {
+    width: 150px;
+    height: auto;
+    margin: 0 auto 24px auto;
+    display: block;
+  }
+
+  .footer-logo {
+    width: 70px;
+    height: auto;
+    margin: 28px auto 0 auto;
+    display: block;
+    opacity: 0.85;
+  }
+
+  .name-script {
+    font-family: 'Brittany Signature', 'Birthstone', cursive;
+    font-style: normal;
+    font-size: clamp(30px, 6vw, 42px);
+    font-weight: 400;
+    color: var(--olive-deep);
+    line-height: 1.5;
+    margin-top: 24px;
+    margin-bottom: 28px;
+    word-break: keep-all;
+  }
+
+  .parent-sub {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    max-width: 360px;
+    margin: 0 auto 24px auto;
+    letter-spacing: 0.02em;
+  }
+
+  .amp-symbol {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 30px;
+    color: var(--gold);
+    margin: 28px auto;
+    display: block;
+  }
+
+  .doa {
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .event-lead { 
+    font-size: 11.5px; 
+    color: var(--ink-soft); 
+    margin-bottom: 10px; 
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .event-date-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-top: 1px solid var(--beige);
+    border-bottom: 1px solid var(--beige);
+    padding: 14px 0;
+    width: 100%;
+    max-width: 280px;
+    margin: 16px auto 0 auto;
+  }
+
+  .event-day { 
+    font-size: 12px; 
+    text-transform: uppercase; 
+    color: var(--olive); 
+    letter-spacing: 0.08em;
+  }
+
+  .event-day-num { 
+    font-style: normal; 
+    font-weight: 600; 
+    font-size: 38px; 
+    color: var(--ink); 
+    line-height: 1;
+  }
+
+  .event-month-year { 
+    font-size: 11px; 
+    color: var(--ink-soft); 
+    text-align: left; 
+    text-transform: uppercase; 
+    line-height: 1.3;
+  }
+
+  .countdown { 
+    display: flex; 
+    justify-content: center; 
+    gap: 12px; 
+    margin-top: 24px; 
+  }
+
+  .cd-item { 
+    background: var(--soft-white); 
+    border: 1px solid var(--beige); 
+    border-radius: 8px; 
+    padding: 14px 6px; 
+    width: 68px; 
+  }
+
+  .cd-num { 
+    font-style: normal; 
+    font-weight: 600; 
+    font-size: 22px; 
+    color: var(--olive-deep); 
+    display: block; 
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .cd-label { 
+    font-size: 8.5px; 
+    text-transform: uppercase; 
+    color: var(--ink-soft); 
+    letter-spacing: 0.05em;
+  }
+
+  .venue-card { 
+    background: var(--soft-white); 
+    border: 1px solid var(--beige); 
+    border-radius: 10px; 
+    padding: 24px 20px; 
+    margin-top: 18px; 
+    text-align: left; 
+  }
+
+  .venue-name { 
+    font-family: 'Cormorant Garamond', serif; 
+    font-style: normal; 
+    font-size: 19px; 
+    font-weight: 600; 
+    color: var(--olive-deep); 
+    margin: 0 0 8px 0; 
+  }
+
+  .venue-addr { 
+    font-size: 12.5px; 
+    color: var(--ink-soft); 
+    line-height: 1.6; 
+    margin: 0 0 16px 0; 
+  }
+
+  .map-img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 6px; 
+    border: 1px solid var(--beige); 
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 28px;
+    background: var(--gold);
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    font-style: normal;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease;
+  }
+
+  .btn:hover { background: #b08e5e; }
+
+  .rsvp-form { 
+    text-align: left; 
+    background: var(--soft-white); 
+    border: 1px solid var(--beige); 
+    border-radius: 10px; 
+    padding: 24px 20px; 
+    margin-top: 20px;
+  }
+
+  .field { margin-bottom: 16px; }
+
+  .field label { 
+    display: block; 
+    font-size: 10px; 
+    font-style: normal; 
+    letter-spacing: 0.12em; 
+    text-transform: uppercase; 
+    color: var(--olive-deep); 
+    margin-bottom: 8px; 
+  }
+
+  .field input[type=text], .field input[type=number], .field textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid var(--beige); 
+    border-radius: 6px; 
+    font-family: 'Montserrat', sans-serif; 
+    font-style: italic; 
+    font-size: 13px; 
+    background: #fff;
+  }
+
+  .seg { display: flex; gap: 8px; }
+
+  .seg button { 
+    flex: 1; 
+    padding: 10px 4px; 
+    border: 1px solid var(--beige); 
+    background: #fff; 
+    border-radius: 6px; 
+    font-family: 'Montserrat', sans-serif; 
+    font-style: normal; 
+    font-size: 11px; 
+    cursor: pointer; 
+    transition: all 0.2s ease;
+  }
+
+  .seg button.active { 
+    background: var(--olive); 
+    color: #fff; 
+    border-color: var(--olive); 
+  }
+
+  /* WISHES FEED STYLES (HORIZONTAL CAROUSEL) */
+  .wishes-container {
+    margin-top: 32px;
+    text-align: left;
+  }
+
+  .wishes-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--olive-deep);
+    text-align: center;
+    margin-bottom: 16px;
+    border-top: 1px solid var(--beige);
+    padding-top: 24px;
+  }
+
+  .wishes-list {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 12px;
+    padding-top: 4px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .wishes-list::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .wishes-list::-webkit-scrollbar-thumb {
+    background: var(--beige);
+    border-radius: 4px;
+  }
+
+  .wish-card {
+    flex: 0 0 250px;
+    scroll-snap-align: start;
+    background: #fff;
+    border: 1px solid var(--beige);
+    border-radius: 8px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  }
+
+  .wish-name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12.5px;
+    color: var(--olive-deep);
+    margin-bottom: 4px;
+  }
+
+  .wish-text {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0;
+    word-break: break-word;
+  }
+
+  /* DOA BAITUL MUSLIM STYLES */
+  .doa-baitul-muslim p {
+    font-size: 12.5px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .arabic-text {
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    direction: rtl;
+    font-size: 20px;
+    color: var(--ink);
+    margin: 16px 0;
+    display: block;
+    line-height: 1.6;
+  }
+
+  /* CONTACT SECTION STYLES */
+  .contact-card {
+    background: #fff;
+    border: 1px solid var(--beige);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  }
+
+  .contact-info {
+    text-align: left;
+  }
+
+  .contact-name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--olive-deep);
+    margin-bottom: 2px;
+  }
+
+  .contact-phone {
+    font-style: normal;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  .contact-btn {
+    padding: 8px 16px;
+    background: var(--olive);
+    color: #fff;
+    text-decoration: none;
+    font-size: 10px;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 20px;
+    transition: background 0.2s ease;
+  }
+
+  .contact-btn:hover {
+    background: var(--olive-deep);
+  }
+
+  .rule { 
+    width: 40px; 
+    height: 1px; 
+    background: var(--gold); 
+    margin: 24px auto; 
+  }
+</style>
+</head>
+<body class="no-scroll">
+
+<audio id="bg-music" loop preload="auto">
+  <source src="Medley Fi Hob El Nabi.mp3" type="audio/mpeg">
+</audio>
+
+<div id="opening-cover">
+  <div class="envelope-wrapper">
+    <img src="Sampul.png" alt="Sampul Jemputan" class="envelope-img">
+    <button class="open-btn" id="openCardBtn">Buka Kad Jemputan</button>
+  </div>
+</div>
+
+<div class="card" id="mainCard">
+
+  <!-- SECTION 1: HEADER -->
+  <div class="block bg-soft reveal" style="text-align: center !important;">
+    <div style="font-family: Arial, Helvetica, sans-serif !important; font-style: normal !important; font-weight: bold !important; font-size: 28px !important; color: #2C2923 !important; margin: 0 0 20px 0 !important; line-height: 1.4 !important; direction: rtl !important;">
+      بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+    </div>
+
+    <span class="eyebrow-small" style="display: block !important; margin-bottom: 6px !important;">UNDANGAN KE</span>
+
+    <div style="margin: 0 0 24px 0 !important; padding: 0 !important;">
+      <h1 style="font-family: 'Cormorant Garamond', serif !important; font-style: normal !important; font-size: 38px !important; font-weight: 600 !important; color: #2C2923 !important; margin: 0 !important; padding: 0 !important; line-height: 1.1 !important;">
+        Walimatulurus
+      </h1>
+    </div>
+
+    <img src="logo green.png" alt="Logo FH" class="header-logo" style="width: 150px !important; height: auto !important; margin: 0 auto 24px auto !important; display: block !important;">
+
+    <p class="doa" style="margin: 0 auto !important;">
+      Assalamu’alaikum Warahmatullahi Wabarakatuh<br>
+      &amp; Salam Sejahtera
+    </p>
+  </div>
+
+  <!-- SECTION 2: HOST & COUPLE -->
+  <div class="block bg-ivory reveal">
+    <p class="doa" style="margin-bottom: 32px;">
+      Dengan rasa penuh kesyukuran dan rendah diri, kami menjemput<br>
+      <strong style="font-style: normal; color: var(--olive-deep); font-size: 14px; display: inline-block; margin: 8px 0;">Dato&rsquo; / Datin / Tuan / Puan / Encik / Cik</strong><br>
+      sekeluarga hadir ke Walimatulurus puteri kami bersama pasangan:
+    </p>
+
+    <div class="name-script">Hanaa Najihah</div>
+    <div class="parent-sub">
+      Puteri kepada Zulkifli bin Hussin<br>&amp; Anita binti Ibrahim
+    </div>
+
+    <div class="amp-symbol">&amp;</div>
+
+    <div class="name-script">Muhammad Fahim Irsyad</div>
+    <div class="parent-sub">
+      Putera kepada Mohamad Fadzil bin Md Tahir<br>&amp; Siti Shazilla binti Salleh
+    </div>
+  </div>
+
+  <!-- SECTION 3: EVENT / DATE -->
+  <div class="block bg-soft reveal">
+    <div class="event-lead">Tarikh Majlis</div>
+    <div class="event-details">
+      <div class="event-date-row">
+        <span class="event-day">Sabtu</span>
+        <span style="color:var(--beige);">|</span>
+        <span class="event-day-num">26</span>
+        <span style="color:var(--beige);">|</span>
+        <span class="event-month-year">Sept<br>2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: TENTATIF (INLINE STYLED UNTUK OVERRIDE CACHE) -->
   <div class="block bg-ivory reveal">
     <span class="eyebrow-small">TENTATIF</span>
     <h2 style="font-family:'Cormorant Garamond', serif; font-style:normal; font-size:26px; margin: 0 0 20px 0;">Atur Cara Majlis</h2>
     
-    <div style="display: flex; justify-content: center; align-items: center; background: #F8F7F3; border: 1px solid #E6DCCF; border-radius: 12px; padding: 18px 24px; max-width: 380px; margin: 0 auto; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
-      <span style="font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 500; font-size: 15px; color: #434E35; letter-spacing: 0.05em; text-align: center; display: block; width: 100%;">
+    <div style="display: flex !important; justify-content: center !important; align-items: center !important; background: #F8F7F3 !important; border: 1px solid #E6DCCF !important; border-radius: 12px !important; padding: 18px 24px !important; max-width: 380px !important; margin: 0 auto !important; box-shadow: 0 2px 8px rgba(0,0,0,0.02) !important;">
+      <span style="font-family: 'Montserrat', sans-serif !important; font-style: normal !important; font-weight: 500 !important; font-size: 15px !important; color: #434E35 !important; letter-spacing: 0.05em !important; text-align: center !important; display: block !important; width: 100% !important;">
         11.30 AM - 4.30 PM
       </span>
     </div>
   </div>
+
+  <!-- SECTION 5: COUNTDOWN -->
+  <div class="block bg-soft reveal">
+    <span class="eyebrow-small">DETIK BERMAKNA</span>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-style:normal; font-size:22px; margin: 0;">Menghitung Hari</h2>
+    <div class="countdown" id="countdown">
+      <div class="cd-item"><span class="cd-num" id="cd-d">00</span><span class="cd-label">Hari</span></div>
+      <div class="cd-item"><span class="cd-num" id="cd-h">00</span><span class="cd-label">Jam</span></div>
+      <div class="cd-item"><span class="cd-num" id="cd-m">00</span><span class="cd-label">Minit</span></div>
+      <div class="cd-item"><span class="cd-num" id="cd-s">00</span><span class="cd-label">Saat</span></div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: VENUE -->
+  <div class="block bg-ivory reveal">
+    <span class="eyebrow-small">LOKASI MAJLIS</span>
+    <div class="venue-card">
+      <div class="venue-name">Kediaman Keluarga</div>
+      <p class="venue-addr">Lot 3095, Jalan Dato&rsquo; Raja Diraja,<br>Taman Seri Rembau, Fasa 1,<br>71300 Rembau, Negeri Sembilan</p>
+      
+      <a href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener">
+        <img class="map-img" src="map.png" alt="Lokasi Google Maps">
+      </a>
+      <div style="text-align: center;">
+        <a class="btn" href="https://maps.app.goo.gl/PGNopPfnuTK9rR2v9" target="_blank" rel="noopener">Buka Google Maps</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: RSVP & UCAPAN FEED -->
+  <div class="block bg-soft reveal" id="rsvp">
+    <span class="eyebrow-small">RSVP</span>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-style:normal; font-size:22px; margin: 0;">Pengesahan Kehadiran</h2>
+    <p class="doa" style="margin-bottom:18px;">Sila sahkan kehadiran anda sebelum 12 September 2026.</p>
+
+    <div class="rsvp-form">
+      <div class="field">
+        <label for="f-name">Nama Tetamu</label>
+        <input type="text" id="f-name" placeholder="Nama anda">
+      </div>
+      <div class="field">
+        <label>Status Kehadiran</label>
+        <div class="seg" id="f-status">
+          <button type="button" data-val="Hadir" class="active">Hadir</button>
+          <button type="button" data-val="Tidak Hadir">Tidak Hadir</button>
+        </div>
+      </div>
+      <div class="field" id="pax-container">
+        <label for="f-pax">Bilangan Tetamu</label>
+        <input type="number" id="f-pax" min="1" max="10" value="1">
+      </div>
+      <div class="field">
+        <label for="f-msg">Ucapan &amp; Doa Restu</label>
+        <textarea id="f-msg" placeholder="Tinggalkan ucapan buat pengantin..."></textarea>
+      </div>
+      <button class="btn" id="f-submit" style="width: 100%; background: var(--olive-deep); color: #fff;">Hantar RSVP</button>
+    </div>
+
+    <!-- RUANGAN UCAPAN & DOA RESTU (HORIZONTAL SLIDER) -->
+    <div class="wishes-container">
+      <div class="wishes-title">Ucapan &amp; Doa Restu</div>
+      <div class="wishes-list" id="wishes-list">
+        <p style="text-align:center; font-size:12px; color:var(--ink-soft); width: 100%;">Memuatkan ucapan...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: DOA SEBUAH BAITUL MUSLIM -->
+  <div class="block bg-ivory reveal doa-baitul-muslim">
+    <span class="eyebrow-small" style="margin-bottom: 12px;">DOA SEBUAH BAITUL MUSLIM</span>
+    
+    <span class="arabic-text" style="font-size: 26px; text-align: center;">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+
+    <p>
+      Ya Allah, Tuhan Yang Maha Pengasih lagi Maha Penyayang,<br>
+      Dengan penuh rasa syukur kami memohon kepada-Mu, redailah penyatuan dua hati ini yang diikat dengan akad yang Engkau muliakan sebagai <i>Mitsāqan Ghalīẓā</i> (<span class="arabic-text" style="display:inline; font-size:16px;">مِّيثَٰقًا غَلِيظًا</span>) — sebuah perjanjian yang kukuh, suci dan diberkati. Teguhkanlah mereka dalam memelihara amanah ini dengan iman, ihsan dan takwa hingga ke akhir hayat.
+    </p>
+
+    <p>
+      Jadikanlah rumah tangga yang dibina ini sebuah Baitul Muslim yang berteraskan al-Quran dan sunnah; dipenuhi sakinah, disuburkan dengan mawaddah, dilimpahi rahmah, serta sentiasa mengundang keberkatan dan reda-Mu.
+    </p>
+
+    <p>
+      Kurniakanlah kepada mereka kasih yang meneladani kemuliaan cinta Rasulullah ﷺ dan Sayyidatina Khadijah r.a.; kasih yang saling menguatkan dalam dakwah, perjuangan, kesabaran, dan pengorbanan. Anugerahkan juga kepada mereka keteguhan hati dan kesucian jiwa sebagaimana rumah tangga Sayyidina Ali k.w. dan Sayyidatina Fatimah az-Zahra r.a., yang dibina atas dasar takwa, ilmu dan ketaatan kepada-Mu.
+    </p>
+
+    <p>
+      Ya Allah, kurniakanlah kepada mereka zuriat yang soleh lagi musleh; generasi yang mencintai al-Quran, menghidupkan sunnah Rasul-Mu, menjadi penyejuk hati kedua ibu bapanya, serta membesar sebagai hamba-hamba-Mu yang teguh memperjuangkan agama-Mu dengan hikmah, ilmu dan akhlak.
+    </p>
+
+    <p>
+      Jadikanlah keluarga ini sebuah kubu pertahanan agama-Mu, tempat lahirnya insan-insan yang menyeru kepada kebenaran, mempertahankan Islam, menyebarkan rahmat kepada seluruh alam, dan menjadi saham amal yang berpanjangan hingga ke akhir hayat.
+    </p>
+
+    <p>
+      Himpunkanlah mereka dalam kasih yang tidak terputus oleh dunia, sehingga Engkau mempertemukan mereka kembali di taman-taman syurga bersama para nabi, para siddiqin, para syuhada' dan orang-orang yang Engkau kasihi.
+    </p>
+
+    <span class="arabic-text" style="text-align: center;">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَٰجِنَا وَذُرِّيَّٰتِنَا قُرَّةَ أَعْيُنٍ وَٱجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</span>
+    
+    <p style="font-style: italic; margin-top: 4px; margin-bottom: 2px;">
+      "Ya Tuhan kami, anugerahkanlah kepada kami pasangan dan zuriat yang menjadi penyejuk mata, dan jadikanlah kami pemimpin bagi orang-orang yang bertakwa."
+    </p>
+    <p style="font-size: 11px; color: var(--gold); margin-bottom: 20px;">(Surah Al-Furqan: 74)</p>
+
+    <span class="arabic-text" style="text-align: center;">آمِيْن يَا رَبَّ الْعَالَمِيْن</span>
+  </div>
+
+  <!-- SECTION 9: UNTUK DIHUBUNGI -->
+  <div class="block bg-soft reveal">
+    <span class="eyebrow-small">HUBUNGI KAMI</span>
+    <h2 style="font-family:'Cormorant Garamond', serif; font-style:normal; font-size:24px; margin: 0 0 12px 0;">Untuk Dihubungi</h2>
+
+    <div style="max-width: 380px; margin: 0 auto;">
+      <div class="contact-card">
+        <div class="contact-info">
+          <div class="contact-name">Huda</div>
+          <div class="contact-phone">010-5525298</div>
+        </div>
+        <a href="https://wa.me/60105525298" target="_blank" class="contact-btn">Hubungi</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-info">
+          <div class="contact-name">Husna</div>
+          <div class="contact-phone">011-31237174</div>
+        </div>
+        <a href="https://wa.me/601131237174" target="_blank" class="contact-btn">Hubungi</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10: CLOSING -->
+  <div class="block bg-ivory reveal">
+    <div class="rule"></div>
+    <p class="doa">Semoga kehadiran serta doa restu daripada pihak Tuan/Puan akan menyemarakkan lagi majlis ini dan diberkati Allah SWT.</p>
+    
+    <img src="logo green.png" alt="Logo FH Small" class="footer-logo">
+  </div>
+
+</div>
+
+<script>
+  // Link Apps Script Terbaharu
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzmWBl8VugfGs6kIk4aiS2uEufDdPSxStlok25cNVLN7ZllYLOOPw1Dv_Ko5q3s4t8/exec";
+
+  const openCardBtn = document.getElementById("openCardBtn");
+  const openingCover = document.getElementById("opening-cover");
+  const mainCard = document.getElementById("mainCard");
+  const bgMusic = document.getElementById("bg-music");
+
+  openCardBtn.addEventListener("click", () => {
+    if (bgMusic) {
+      bgMusic.play().catch(err => console.log("Audio Error / Play Blocked:", err));
+    }
+    openingCover.classList.add("open-card");
+    document.body.classList.remove("no-scroll");
+    mainCard.classList.add("show-main");
+    triggerScrollAnimations();
+    loadWishes();
+  });
+
+  function triggerScrollAnimations() {
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  // Segment Button Logic (Hadir / Tidak Hadir)
+  let selectedStatus = "Hadir";
+  const statusBtns = document.querySelectorAll("#f-status button");
+  const paxContainer = document.getElementById("pax-container");
+
+  statusBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      statusBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedStatus = btn.getAttribute("data-val");
+      
+      if (selectedStatus === "Tidak Hadir") {
+        paxContainer.style.display = "none";
+      } else {
+        paxContainer.style.display = "block";
+      }
+    });
+  });
+
+  // Fetch Wishes from Google Sheet
+  function loadWishes() {
+    const listEl = document.getElementById("wishes-list");
+    fetch(SCRIPT_URL)
+      .then(res => res.text())
+      .then(textData => {
+        const data = JSON.parse(textData);
+        if (!data || data.length === 0) {
+          listEl.innerHTML = '<p style="text-align:center; font-size:12px; color:var(--ink-soft); width: 100%;">Belum ada ucapan. Jadilah yang pertama!</p>';
+          return;
+        }
+        listEl.innerHTML = data.map(w => `
+          <div class="wish-card">
+            <div class="wish-name">${escapeHtml(w.nama)}</div>
+            <p class="wish-text">${escapeHtml(w.ucapan)}</p>
+          </div>
+        `).join("");
+      })
+      .catch(err => {
+        console.error("Error loading wishes:", err);
+        listEl.innerHTML = '<p style="text-align:center; font-size:12px; color:var(--ink-soft); width: 100%;">Gagal memuatkan ucapan.</p>';
+      });
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.innerText = text;
+    return div.innerHTML;
+  }
+
+  // Submit RSVP to Google Sheets
+  const submitBtn = document.getElementById("f-submit");
+  submitBtn.addEventListener("click", () => {
+    const nama = document.getElementById("f-name").value.trim();
+    const pax = selectedStatus === "Tidak Hadir" ? 0 : document.getElementById("f-pax").value;
+    const ucapan = document.getElementById("f-msg").value.trim();
+
+    if (!nama) {
+      alert("Sila masukkan nama anda.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "MENGHANTAR...";
+
+    const payload = {
+      nama: nama,
+      status: selectedStatus,
+      pax: pax,
+      ucapan: ucapan
+    };
+
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      alert("Terima kasih! RSVP anda telah berjaya dihantar.");
+      document.getElementById("f-name").value = "";
+      document.getElementById("f-msg").value = "";
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Hantar RSVP";
+      setTimeout(loadWishes, 1500);
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Ralat menghantar RSVP. Sila cuba lagi.");
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Hantar RSVP";
+    });
+  });
+
+  // Countdown Timer
+  const targetDate = new Date("September 26, 2026 11:30:00").getTime();
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff > 0) {
+      document.getElementById("cd-d").textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      document.getElementById("cd-h").textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+      document.getElementById("cd-m").textContent = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      document.getElementById("cd-s").textContent = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+    }
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+</body>
+</html>
